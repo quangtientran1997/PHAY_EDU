@@ -1,0 +1,99 @@
+
+@media (max-width: 1200px) {
+	.header .menu-top {
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    width: 200px;
+	    height: 100%;
+	    background-color: #fff;
+	    padding: 25px 20px;
+	    opacity: 0;
+	    visibility: hidden;
+	    z-index: 0;
+	    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+	}
+	.header .menu-top ul li {
+	    float: left;
+	    width: 100%;
+	    text-align: left;
+	    padding: 0 0 0 0;
+	    margin-bottom: 20px;
+	}
+	.header .menu-top ul li span {
+	    display: inline-block;
+	    margin-right: 10px;
+	}
+	.header .menu-top ul li .badge {
+		margin: 0
+	}
+	.menu-btn {
+	    display: block
+	}
+	.header .menu-top.active {
+	    opacity: 1;
+	    visibility: visible;
+	    z-index: 9999;
+	}
+ 
+}
+
+@media only screen and (min-width: 1200px) {
+  
+}
+
+@media only screen and (max-width: 991px) {
+  	.main-dashboard .profile-ds-info {
+	    height: auto;
+	    overflow: unset;
+	}
+	.featured {
+		flex-flow: column; 
+	}
+}
+
+@media only screen and (max-width: 767px) {
+  	.main-dashboard .profile-ds-info .col-sm-3{
+	    margin-bottom: 30px;
+	}
+	.group-cautraloi.list-inline>li {
+		display: block
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.lightbox-content .story-img {
+		margin-right: 0;
+	    margin-left: 0;
+	    width: 100%;
+	    height: calc(100% - 350px);
+	    position: relative;
+    	display: flex;
+    	flex-direction: column;
+	}
+}
+
+
+@media only screen and (max-width: 550px) {
+	.user-account {
+		display: none
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.mainMnBtn {
+		display: none
+	}
+}
+
+@media only screen and (max-width: 440px) {
+	.header .search-bar {
+	    width: 150px;
+	}
+}
+
+@media only screen and (max-width: 320px) {
+	.header .search-bar {
+	    display: none
+	}
+}

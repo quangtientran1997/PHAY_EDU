@@ -1,0 +1,198 @@
+﻿@using Kendo.Mvc;
+@using Kendo.Mvc.UI;
+@using Kendo.Mvc.UI.Fluent;
+@using PHAY.LIB.Common
+@{
+    bool? isXemMail = ViewBag.IsXemMail;
+    bool? isXemThongBao = ViewBag.IsXemThongBao;
+    bool? isXemLichCongTacChung = ViewBag.IsXemLichChung;
+    bool? isXemLichDonVi = ViewBag.IsXemLichDonVi;
+    bool? isXemLichPhongBan = ViewBag.IsXemLichPhongBan;
+    bool? isXemLichCaNhan = ViewBag.IsXemLichCaNhan;
+    bool? isXemLichTuan = ViewBag.IsXemLichTuan;
+    bool? isXemLichDeXuat = ViewBag.IsXemLichDeXuat;
+
+    bool? isXemDangKyVang = ViewBag.IsXemDangKyVang;
+    //bool? isXemThongKeCongViecDuAn = ViewBag.IsXemThongKeCongViecDuAn;
+    //bool? isXemCongViecDuAnCaNhan = ViewBag.IsXemCongViecDuAnCaNhan;
+    //bool? isThongKeThucGiang = ViewBag.IsThongKeThucGiang;
+    bool? isXemYeuCauKhachHang = ViewBag.IsXemYeuCauKhachHang;
+    bool? isXemCongViecDuAn = ViewBag.IsXemCongViecDuAn;
+    bool? isXemDuAnThamGia = ViewBag.IsXemDuAnThamGia;
+
+}
+
+<style>
+    .k-window {
+        top: 120px !important;
+    }
+</style>
+
+<div class="page-header navbar navbar-fixed-top ">
+    <div class="page-header-inner ">
+        <div class="page-logo">
+            <a href="#">
+                <img src="~/Content/AConfig/images/logo_dashboard.png" class="logo-default" />
+            </a>
+        </div>
+        <a href="javascript:;" class="menu-toggler menu-toggler-top responsive-toggler" data-toggle="collapse" data-target=".page-sidebar-top">
+            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+        </a>
+        <div class="menu-top-left">
+            <div class="navbar-collapse collapse  page-sidebar-top">
+                <ul class="nav navbar-nav">
+                    @if (isXemThongBao.GetValueOrDefault(false))
+                    {
+                        <li>
+                            <a class="badge_thongbao" href="javascript:" onclick="createNewTab('Thông báo', '/ThongBao/ThongBao', 46, false);">
+                                Thông báo
+                            </a>
+                        </li>
+                    }
+                    @if (isXemLichCongTacChung.GetValueOrDefault(false) || isXemLichDonVi.GetValueOrDefault(false) ||
+                        isXemLichPhongBan.GetValueOrDefault(false) || isXemLichCaNhan.GetValueOrDefault(false) ||
+                        isXemLichDeXuat.GetValueOrDefault(false))
+                    {
+                        bool oneLichChung = false;
+                        if (!isXemLichDonVi.GetValueOrDefault(false) &&
+                        !isXemLichPhongBan.GetValueOrDefault(false) &&
+                        !isXemLichCaNhan.GetValueOrDefault(false) &&
+                        !isXemLichDeXuat.GetValueOrDefault(false))
+                        {
+                            oneLichChung = true;
+                        }
+                        <li class="dropdown">
+                            @if (oneLichChung)
+                            {
+                                <a class="badge_lichcongtac_all" href="javascript:" onclick="createNewTab('Lịch công tác', '/LichCongTac/Lich', 48, false);">
+                                    Lịch công tác
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="badge_lichcongtac_all" href="javascript:" data-toggle="dropdown">
+                                    Lịch công tác
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="badge_lichcongtac_dexuat" href="javascript:" onclick="createNewTab('Đề xuất lịch công tác', '/LichCongTac/LichDeXuat', 1174, false);">
+                                            Đề xuất lịch công tác
+                                        </a>
+                                    </li>
+                                </ul>
+                            }
+                        </li>
+                    }
+                    @if (isXemMail.GetValueOrDefault(false))
+                    {
+                        <li>
+                            <a class="badge_thuden" href="javascript:" onclick="createNewTab('Hộp thư', '/MailBox/HopThu', 47, false);">
+                                Hộp thư
+
+                            </a>
+                        </li>
+                    }
+                    @*@if (isXemDangKyVang.GetValueOrDefault(false))
+        {
+            <li>
+                <a class="badge_dangkyvang" href="javascript:" onclick="createNewTab('Đăng ký vắng', '/ChamCong/DangKyVang', 54, false);">
+                    Đăng ký vắng
+                </a>
+            </li>
+        }
+        @if (isXemYeuCauKhachHang.GetValueOrDefault(false))
+        {
+            <li>
+                <a class="badge_yeucaukhachhang" href="javascript:" onclick="createNewTab('Yêu cầu', '/KhachHang/YeuCau', 13, false);">
+                    Yêu cầu
+                </a>
+            </li>
+        }
+        @if (isXemCongViecDuAn.GetValueOrDefault(false))
+        {
+            <li>
+                <a class="badge_congviecduan" href="javascript:" onclick="createNewTab('Công việc', '/DuAn/CongViec', 5, false);">
+                    Công việc
+                </a>
+            </li>
+        }*@
+                    @if (isXemDuAnThamGia.GetValueOrDefault(false))
+                    {
+                        <li class="dropdown">
+                            <a href="javascript:" data-toggle="dropdown">
+                                Dự án
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="javascript:" onclick="createNewTab('Dự án nhóm', '/DuAn/DuAnTeamThamGia', 1154, false);">
+                                        Dự án nhóm
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:" onclick="createNewTab('Sơ đồ phụ trách module', '/DuAn/SoDoModule', 1519, false);">
+                                        Sơ đồ phụ trách module
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="top-menu">
+            <a href="javascript:;" class="menu-toggler responsive-toggler pull-left" data-toggle="collapse" data-target=".page-sidebar-right">
+                <span></span>
+            </a>
+
+            <ul class="nav navbar-nav pull-right">
+                <li class="dropdown dropdown-extended dropdown-notification" id="asc_header_notification_bar">
+                    @*@Html.Partial("~/Views/Shared/Admin/Partials/_HeaderNotification.cshtml")*@
+                </li>
+
+                <li class="dropdown dropdown-user">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        @*<img alt="" class="img-circle" src="~/Content/Admin/assets/layouts/layout/img/avatar.png" />*@
+
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-default">
+                        <li>
+                            <a href="/HeThong/ClearAllCache">
+                                <i class="icon-refresh"></i> Xóa cache
+                            </a>
+                        </li>
+                        <li>
+                            <a onClick="$('[id=gridIDCapNhatMatKhau').gridPopupEditor('popupAddUpdatePassword', '/ASecurity/ChangePassword', 'Cập nhật mật khẩu')" href="javascript:void(0);">
+                                <i class="icon-lock"></i> Đổi mật khẩu
+                            </a>
+                        </li>
+                        @if (false)
+                        {
+                            <li>
+                                <a onClick="$('[id=gridThayDoiThongTin').gridPopupEditor('popupAddUpdateSoPhongTruong', '/ASecurity/ChangeSoPhongTruong', 'Thay đổi thông tin')" href="javascript:void(0);">
+                                    <i class="fa fa-building"></i> Thay đổi thông tin
+                                </a>
+                            </li>
+                        }
+                       
+                        <li>
+                            <a onClick="$('[id=gridChangeThongTinNguoiDung').gridPopupEditor('popupAddUpdatePassword', '/ASecurity/ChangeThongTinNguoiDung', 'Thay đổi thông tin')" href="javascript:void(0);">
+                                <i class="icon-info"></i> Thay đổi thông tin
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/ASecurity/Logout">
+                                <i class="icon-key"></i> Đăng xuất
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown dropdown-quick-sidebar-toggler">
+                    <a href="/ASecurity/Logout" class="dropdown-toggle">
+                        <i class="icon-paper-plane"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+﻿@using phay.Models;
+@using Kendo.Mvc.UI;
+@using PHAY.LIB.Extensions
+
+@inherits System.Web.Mvc.WebViewPage
+@{
+    var controllerName = "DeCuongMonHoc";
+    var areaName = "";
+    var gridID = "gridDeCuongMonHoc";
+    string deleteOneAction = "DeleteOneDeCuongMonHoc";
+    string searchSuffix = "Search";
+    string keySearch = "TenTaiLieuBaiGiang" + searchSuffix;
+
+    string link_edit = "<a class=\"\"  onClick=\"$('[id=" + gridID + "]').gridPopupEditor('popupAddUpdate', '/DeCuongMonHoc/EditDeCuongMonHoc?pID=#=ID#', 'Cập nhật')\" href=\"javascript:void(0);\"><i class=\"fa fa-edit\"></i></a>";
+    var popupFileAttach = "$('\\#" + gridID + "').gridPopupEditor('popupXemTaiLieu', '" + Url.Action("DanhSachFileDinhKem", "DeCuongMonHoc", new { pID = "#=ID#" }) + "', '" + "Danh sách file đính kèm" + "')";
+    bool isMobile = Request.Browser.IsMobileDevice;
+    string linkDashboard = isMobile ? "/DashBoard" : "javascript:";
+
+
+    bool isCoQuyen = true;
+}
+@(Html.Kendo().Grid<GridDeCuongMonHocViewModel>().Name(gridID)
+                                    .Columns(columns =>
+                                    {
+                                        columns.Bound(m => m.TenTaiLieu).Title("Tiêu đề").ClientTemplate("<a style='cursor: pointer;' onclick=\"ChiTietDeCuong(#=ID#)\">#=TenTaiLieu#</a>");
+                                        columns.Bound(m => m.SoThuTu).Title("Thứ tự").ClientTemplate("<a style='cursor: pointer;' onclick=\"ChiTietDeCuong(#=ID#)\">#=TenTaiLieu#</a>");
+                                        columns.Bound(m => m.TenTaiLieu).ClientTemplate("<a style='cursor: pointer;' onclick=\"ChiTietDeCuong(#=ID#)\">#=TenTaiLieu#</a>");
+                                    })
+                                    .DataSource(dataSource => dataSource
+                                    .Ajax()
+                                    .Model(model =>
+                                    {
+                                        model.Id(m => m.TenTaiLieu);
+                                    })
+                                    .Batch(true)
+                                    .Read(read => read.Action("GridReadDeCuongMonHoc", controllerName, new { area = areaName }).Data("addtionalDataGridDeCuong"))
+                                    .Sort(sort =>
+                                    {
+
+                                    })
+                                    )
+                                    .Pageable(page => page.PageSizes(true))
+                                    .Sortable()
+                                    .Resizable(resize => resize.Columns(true))
+                                    .CMSConfigs()
+                )

@@ -1,0 +1,89 @@
+﻿@using System.Web.Mvc
+@using System.Web.Mvc.Ajax
+@using System.Web.Mvc.Html
+@using ASC.DATA.Models
+@inherits System.Web.Mvc.WebViewPage<List<SP_GetNhanSuHrm_Result>>
+@{
+    if (Model != null && Model.Count() > 0)
+    {
+        var groupPhongBan = Model.GroupBy(m => new { m.IDPhongBan, m.TenPhongBan })
+                                 .Select(m => new { m.Key.TenPhongBan, Tong = m.Count(), DataSeries = "{" + string.Format("y: {0}, TieuDe: {1} ", m.Count(), "'" + m.Key.TenPhongBan + "'") + "}" })
+                                 .OrderByDescending(m => m.Tong)
+                                 .ToList();
+
+        //"{" + string.Format("y: {0}, SoGio: {1}, SoPhut: {2}, TieuDe: '{3}'", soNgay, soGio, soPhut, item.TenNguoiDangKy) + "}"
+        <div class="col-md-3">
+            <div class="dashboard-tabs">
+                <div class="dashboard-tabs-head">
+                    <h3 class="dashboard-tabs-title">NHÂN SỰ PHÒNG BAN</h3>
+                    <div class="dashboard-tabs-options">
+                        <div class="dropdown">
+                            <a href="#" data-toggle="dropdown" data-display="static" aria-expanded="false">
+                                <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-tabs-body nicescroll-cl" tabindex="3" style="overflow: hidden; outline: none;">
+                    <div class="scroller" style="height:615px;overflow-y:auto;" data-always-visible="1" data-rail-visible="0">
+                        <div id="box_ThongKePhongBan" style="height:2000px;"></div>
+                        <script type="text/javascript">
+                            Highcharts.chart('box_ThongKePhongBan', {
+                            chart: {
+                                type: 'bar'
+                            },
+                            title: {
+                                text: ''
+                            },
+                            xAxis: {
+                                categories: [
+                                    @Html.Raw(string.Join(",", groupPhongBan.Select(m=> "'" + m.TenPhongBan +"'")))
+                                ],
+                                title: {
+                                    text: null
+                                }
+                            },
+                            yAxis: {
+                                min: 0,
+                                title: {
+                                    text: 'Nhân sự (người)',
+                                    align: 'high'
+                                },
+                            },
+                            tooltip: {
+                                //headerFormat: '<b>{point.x}</b><br/>',
+                                //pointFormat: "<div>{series.name}: {point.y}<br/>Total: {point.stackTotal}<br/> <p> {series.data['noidung']}</p></div>"
+                                shared: false,
+                                formatter: function () {
+                                    var serie = this.series;
+                                    var index = this.series.data.indexOf(this.point);
+                                    var htmlNoiDung = "<div><div><b style='padding-left:30px;font-weight: bold;'>" + serie.data[index].TieuDe + "</b></div><br /><br />" + serie.name + ": " + this.point.y + " người </div>";
+                                    return htmlNoiDung;
+                                }
+                            },
+                            plotOptions: {
+                                bar: {
+                                    dataLabels: {
+                                        enabled: true
+                                    }
+                                }
+                            },
+                            credits: {
+                                enabled: false
+                            },
+                            series: [{
+                                name: 'Nhân sự',
+                                color:'#fa6c51',
+                                data: [
+                                    
+                                    @Html.Raw(string.Join(",", groupPhongBan.Select(m => m.DataSeries)))
+                                ]
+                            }]
+                        });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

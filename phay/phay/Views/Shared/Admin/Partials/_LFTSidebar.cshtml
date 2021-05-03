@@ -1,0 +1,11 @@
+﻿<div class="page-sidebar-wrapper">
+    <div class="page-sidebar navbar-collapse collapse page-sidebar-right ">
+        @{
+            try
+            {
+                Html.RenderAction("MenuQuyenForManHinh", "HeThong", new { viewNameMenu = "MenuManHinhForTabs" });
+            }
+            catch { }
+        }
+    </div>
+</div>

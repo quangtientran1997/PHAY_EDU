@@ -1,0 +1,25 @@
+﻿<button class="open-button" onclick="openForm()">Mở</button>
+
+    <div class="form-popup" id="myFormPopup">
+        <a href="http://ascvn.com.vn/download-app-mobile-danh-cho-can-bo-giang-vien-nhan-vien.html" target="_blank">
+            <img src="~/Content/images/thongbao-caidatpopup-egov.png" width="100%" />
+        </a>
+        <button type="button" class="btnPopup cancelPopup" onclick="closeForm()">Tắt</button>
+    </div>
+
+    <script>
+    function openForm() {
+      document.getElementById("myFormPopup").style.display = "block";
+      localStorage.setItem("ttdownload", "block")
+    }
+    function closeForm() {
+      document.getElementById("myFormPopup").style.display = "none";
+      localStorage.setItem("ttdownload", "none")
+    }
+    </script>
+
+    <script>    
+        if (typeof(Storage) !== "undefined") {
+            document.getElementById("myFormPopup").style.display= localStorage.getItem("ttdownload");
+        }
+    </script>

@@ -1,0 +1,168 @@
+.vote-rating-box {
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    padding: 20px;
+}
+
+.title-box-small {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    display: block;
+    position: relative;
+    font-family: arial;
+    margin-bottom: 10px;
+}
+
+.title-box-small .inner-title {
+    position: relative;
+    display: inline-block;
+    color: #757575;
+    margin: 0;
+}
+
+.vote-rating-box .count-vote {
+    font-family: arial;
+    font-size: 12px;
+    line-height: 14px;
+    color: #757575;
+    display: inline-block;
+    float: right;
+    margin-top: 3px;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.vote-rating-box .title-vote {
+    font-family: "Merriweather",serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 160%;
+    color: #222;
+}
+
+.vote-rating-box .item-row-vote {
+    margin-bottom: 10px;
+}
+
+.vote-rating-box .label-check {
+    position: relative;
+    width: 100%;
+    padding: 7px 12px 7px 36px;
+    font-size: 17px;
+    color: #222;
+    line-height: 150%;
+    cursor: pointer;
+    background: #F3F3F3;
+    border: 1px solid #E5E5E5;
+    border-radius: 3px;
+    margin: 0;
+    font-weight: 400;
+}
+
+.vote-rating-box .label-check input.radio-check[type="radio"] {
+    width: 12px;
+    height: 12px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    border: none;
+    position: absolute;
+    top: 3px;
+    left: 0;
+}
+
+.vote-rating-box .label-check input.radio-check[type="radio"]:before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    border: 1px solid #BDBDBD;
+    border-radius: 50%;
+    position: absolute;
+    left: 11px;
+    top: 7px;
+}
+
+.vote-rating-box .label-check input.radio-check[type="radio"]:checked:before {
+    border-color: #0a558c;
+}
+
+.vote-rating-box .label-check input.radio-check[type="radio"]:checked:after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #0a558c;
+    border-radius: 50%;
+    position: absolute;
+    left: 14px;
+    top: 10px;
+}
+
+.vote-rating-box .box-button {
+    margin-top: 10px;
+}
+
+.vote-rating-box .box-button .btn-vote-rate {
+    background: #0a558c;
+    border-radius: 3px;
+    cursor: pointer;
+    border: none;
+    height: 40px;
+    font-size: 15px;
+    color: #fff;
+    font-weight: 400;
+    line-height: 40px;
+    width: 120px;
+}
+
+.vote-rating-box .box-button .btn-view-cancel {
+    padding: 0 12px;
+    background: none;
+    color: #757575;
+    text-decoration: underline;
+}
+
+.vote-rating-box .item-kq-vote {
+    margin-bottom: 15px;
+}
+
+.vote-rating-box .txt-kq-vote {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    align-items: flex-end;
+    font-size: 17px;
+    line-height: 150%;
+}
+
+.vote-rating-box .txt-kq-vote .option-txt {
+    flex-shrink: 1;
+}
+
+.vote-rating-box .txt-kq-vote .count-vote-kq {
+    margin-left: auto;
+    padding-left: 15px;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.vote-rating-box .kq-vote {
+    margin-top: 5px;
+    margin-bottom: 0;
+    height: 5px;
+    background: #E5E5E5;
+    position: relative;
+}
+
+.vote-rating-box .kq-vote .percent-vote {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #0a558c;
+    border: 3px 0 0 3px;
+}

@@ -1,0 +1,279 @@
+﻿
+/*--------------------------------------------------------------
+*{word-wrap: break-word} >>> REPONSIVE
+---------------------------------------------------------------- */
+@media screen and (max-width: 1280px) and (min-width: 1024px) {
+}
+
+@media screen and (max-width: 1024px) and (min-width: 970px) {
+}
+
+@media screen and (max-width: 970px) and (min-width:767px) {
+}
+
+@media screen and (max-width:767px) {
+    .hot-banner {
+        display: none !important;
+    }
+}
+
+@media screen and (min-width:320px) and (max-width: 480px) {
+}
+
+@media screen and (max-width: 380px) {
+}
+/*---- end Responsive base screen witdh ------- */
+/*--------------------------------------------------------------
+>>> WRAP-MAIN ; CONTAINER
+---------------------------------------------------------------- */
+body {
+    /*font-family: 'Segoe UI','Arial', sans-serif;
+    font-size: 100%;
+    color: #000;
+    margin: 0;
+    padding: 0;*/
+}
+
+.font-100 {
+    font-size: 100%;
+}
+
+.font-90 {
+    font-size: 90%;
+}
+
+.font-95 {
+    font-size: 95%;
+}
+
+.font-80 {
+    font-size: 80%;
+}
+
+.font-85 {
+    font-size: 85%;
+}
+
+.font-70 {
+    font-size: 70%;
+}
+
+.font-75 {
+    font-size: 75%;
+}
+
+.wd-15 {
+    width: 15%;
+}
+
+.bangcongtac {
+    font-size: 13px;
+    color: #003f59 !important;
+}
+
+    .bangcongtac thead {
+        background: #1787ca;
+        background: linear-gradient(130deg, #00b784 0%, #10cde2 51%, #00a0dc 75%);
+        color: #fff;
+        border-radius: 6px 6px 0 0;
+    }
+
+    .bangcongtac .table .tgian {
+        width: 100px;
+    }
+
+    .bangcongtac .table tr .day, .bangcongtac .table tr .tgian, .bangcongtac .table tr .tb_head {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .bangcongtac .table tr .tb_head {
+        border: 0px;
+    }
+
+    .bangcongtac .table th, .bangcongtac .table td {
+        border-top: 0px;
+        padding: 5px 5px;
+        vertical-align: middle;
+        border: solid 1px #C9CED7;
+    }
+
+    .bangcongtac .table-striped tbody tr:nth-of-type(odd) {
+        background: #f9f9f9
+    }
+
+    .bangcongtac .table tr .day {
+        background: #fff;
+    }
+
+    .bangcongtac .table tr .day2 {
+        background: #daf1fd;
+        font-size: 20px;
+    }
+
+    .bangcongtac .table tbody {
+        border: 1px solid #daf1fd;
+    }
+
+.table-bordered th, .table-bordered td, .bgwhite {
+    border: 1px solid #ddeeff;
+}
+
+.bangdieukhien {
+    padding-top: 20px;
+}
+
+.number-tuan {
+    padding: 10px 15px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #003f65;
+}
+
+.nut2 {
+    display: inline-block;
+}
+
+.nutbam {
+    border: solid 1px #c3e3fa;
+    background-color: #f2f9fe;
+    font-size: 13px;
+    color: #003f65;
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#f2f9fe),color-stop(100%,#d6f0fd));
+    background-image: -webkit-linear-gradient(top,#f2f9fe,#d6f0fd);
+    background-image: -moz-linear-gradient(top,#f2f9fe,#d6f0fd);
+    background-image: -ms-linear-gradient(top,#f2f9fe,#d6f0fd);
+    background-image: -o-linear-gradient(top,#f2f9fe,#d6f0fd);
+    background-image: linear-gradient(top,#f2f9fe,#d6f0fd);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f2f9fe,endColorstr=#d6f0fd);
+}
+
+.bangcongtac .table-striped .noidung {
+    background: #fcffed;
+}
+
+.bangcongtac a {
+    color: #003f65;
+}
+
+.bgwhite td {
+    background: #daf1fd;
+    border: 0px !important;
+}
+
+.checker {
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    border-radius: 2px;
+    margin-bottom: -2px;
+    margin-right: 3px;
+}
+
+.today, .today .day {
+    background-color: #FFF3A1 !important;
+}
+
+.maudo {
+    background-color: #dc2127;
+}
+
+.mauvang {
+    background-color: #fbd75b;
+}
+
+.mauxanh {
+    background-color: #76b007;
+}
+
+.maucam {
+    background-color: #fe7510;
+}
+
+.display-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-1 {
+    flex: 1 !important;
+}
+
+.navbar-header {
+    padding: 10px 0;
+}
+
+.dropbtn {
+    float: right;
+    border: solid 1px #c3e3fa;
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#f2f9fe),color-stop(100%,#d6f0fd));
+    background-image: -webkit-linear-gradient(top,#f2f9fe,#d6f0fd);
+    background-image: -moz-linear-gradient(top,#f2f9fe,#d6f0fd);
+    background-image: -ms-linear-gradient(top,#f2f9fe,#d6f0fd);
+    background-image: -o-linear-gradient(top,#f2f9fe,#d6f0fd);
+    background-image: linear-gradient(top,#f2f9fe,#d6f0fd);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f2f9fe,endColorstr=#d6f0fd);
+    color: #0094cc;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.dropbtndown {
+    text-align: center;
+    background: #eaf6fe;
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f2f9fe,endColorstr=#d6f0fd);
+    color: #0094cc !important;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-bottom: 1px solid #fff;
+    display: inline-block;
+    width: 100%;
+}
+
+/*scroll*/
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #ccc;
+    }
+
+
+.navbar-default {
+    color: #000;
+    border-color: #aca1a2;
+}
+
+    .navbar-default .navbar-nav > li > a {
+        color: #000;
+    }
+
+    .navbar-default .navbar-nav > .dropdown > a .caret {
+        border-top-color: #fff;
+        border-bottom-color: #fff;
+    }
+
+    .navbar-default .navbar-brand {
+        color: #000;
+    }
+.nd-anlich {
+    margin-top: -20px;
+    text-indent: 20px;
+}

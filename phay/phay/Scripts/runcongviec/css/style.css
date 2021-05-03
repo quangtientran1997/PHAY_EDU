@@ -1,0 +1,324 @@
+* {
+    padding: 0;
+    margin: 0
+}
+
+.date-timeline {
+    width: 100%;
+    height: 100%;
+    FONT-FAMILY: TAHOMA;
+}
+
+.cal-navline {
+    width: 100%;
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 10px;
+    /* background: rgba(199, 233, 239, 0.5); */
+    border-bottom: 1px solid #c2d6da;
+}
+
+.date-timeline .cal-data {
+    overflow: hidden;
+}
+
+    .date-timeline .cal-data .cal-left {
+        width: 200px;
+        float: left;
+    }
+
+        .date-timeline .cal-data .cal-left .group-header {
+            height: 52px;
+            border-bottom: 1px solid #daecf4;
+            border-right: 4px solid #ffc96f;
+            box-sizing: unset;
+        }
+
+        .date-timeline .cal-data .cal-left .group-name {
+            height: 52px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            padding: 0 10px;
+            font-weight: bold;
+            border-bottom: 1px solid #daecf4;
+            border-right: 4px solid #FFA000;
+            font-family: tahoma;
+            font-size: 15px;
+            color: #003f59;
+            box-sizing: unset;
+        }
+
+            .date-timeline .cal-data .cal-left .group-name:nth-child(even) {
+                border-right: 4px solid #50b113;
+                background: #f0f9fb;
+            }
+
+    .date-timeline .cal-data .cal-right {
+        width: calc(100% - 200px);
+        float: left;
+    }
+
+    .date-timeline .cal-data .cal-data-content {
+        overflow-x: scroll;
+    }
+
+        .date-timeline .cal-data .cal-data-content::-webkit-scrollbar-track {
+            background-color: #F5F5F5;
+        }
+
+        .date-timeline .cal-data .cal-data-content::-webkit-scrollbar {
+            width: 2px;
+            height: 5px;
+            background-color: #F5F5F5;
+        }
+
+        .date-timeline .cal-data .cal-data-content:hover::-webkit-scrollbar {
+            height: 10px;
+        }
+
+        .date-timeline .cal-data .cal-data-content::-webkit-scrollbar-thumb {
+            background-color: #afbbbf;
+        }
+
+.cal-data-content table {
+    border-spacing: 0;
+    width: max-content;
+    border-collapse: unset;
+}
+
+.cal-data-content .matrix-cell {
+    width: 43px;
+    height: 52px;
+    text-align: center;
+    border-bottom: 1px solid #c2d6da;
+    border-right: 1px solid #daecf4;
+    box-sizing: unset;
+}
+
+    .cal-data-content .matrix-cell.days {
+        height: 22px;
+        border-right: 1px solid #FFA000;
+        COLOR: #003f59;
+        FONT-SIZE: 14PX;
+    }
+
+    .cal-data-content .matrix-cell.hours {
+        height: 29px;
+        COLOR: #003f59;
+        FONT-SIZE: 12PX;
+    }
+
+    .cal-data-content .matrix-cell.timeline_weekend {
+        background: #FFF9C4;
+    }
+
+.cal-data-content .matrix-line {
+    position: relative;
+}
+
+.cal-data-content table tr:nth-child(even) {
+    background: #f0f9fb;
+}
+
+.cal-data-content .matrix-line .cal_event_line {
+    position: absolute;
+    width: 327px;
+    height: 28px;
+    top: 2px;
+    left: 2px;
+    padding: 10px;
+    background-image: linear-gradient(-45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-size: 1rem 1rem;
+    background-color: #ddd;
+    cursor: pointer;
+    box-sizing: unset;
+}
+
+    .cal-data-content .matrix-line .cal_event_line .cal_event_line_name {
+        color: #153a48;
+        height: 34px;
+        overflow: hidden;
+        font-size: 13px;
+        position: relative;
+        z-index: 1;
+    }
+
+        .cal-data-content .matrix-line .cal_event_line .cal_event_line_name a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+    .cal-data-content .matrix-line .cal_event_line .success {
+        background-color: #86daf3;
+        top: 0;
+        left: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+    }
+
+    .cal-data-content .matrix-line .cal_event_line .add_work {
+        background-color: #ff4747;
+        bottom: 0;
+        left: 0;
+        padding: 0;
+        height: 15%;
+        width: 100%;
+        position: absolute;
+    }
+
+    .cal-data-content .matrix-line .cal_event_line.hours_1 {
+        width: 19px;
+    }
+
+    .cal-data-content .matrix-line .cal_event_line.hours_2 {
+        width: 63px;
+    }
+
+    .cal-data-content .matrix-line .cal_event_line.hours_3 {
+        width: 107px;
+    }
+
+    .cal-data-content .matrix-line .cal_event_line.hours_4 {
+        width: 151px;
+    }
+
+    .cal-data-content .matrix-line .cal_event_line.hours_5 {
+        width: 195px;
+    }
+
+    .cal-data-content .matrix-line .cal_event_line.hours_6 {
+        width: 239px;
+    }
+
+    .cal-data-content .matrix-line .cal_event_line.hours_7 {
+        width: 283px;
+    }
+
+    .cal-data-content .matrix-line .cal_event_line .success.hours_1,
+    .cal-data-content .matrix-line .cal_event_line .add_work.hours_1 {
+        width: 39px;
+    }
+
+    .cal-data-content .matrix-line .cal_event_line .success.hours_2,
+    .cal-data-content .matrix-line .cal_event_line .add_work.hours_2 {
+        width: 83px;
+    }
+
+    .cal-data-content .matrix-line .cal_event_line .success.hours_3,
+    .cal-data-content .matrix-line .cal_event_line .add_work.hours_3 {
+        width: 127px;
+    }
+
+    .cal-data-content .matrix-line .cal_event_line .success.hours_4,
+    .cal-data-content .matrix-line .cal_event_line .add_work.hours_4 {
+        width: 171px;
+    }
+
+    .cal-data-content .matrix-line .cal_event_line .success.hours_5,
+    .cal-data-content .matrix-line .cal_event_line .add_work.hours_5 {
+        width: 215px;
+    }
+
+    .cal-data-content .matrix-line .cal_event_line .success.hours_6,
+    .cal-data-content .matrix-line .cal_event_line .add_work.hours_6 {
+        width: 260px;
+    }
+
+    .cal-data-content .matrix-line .cal_event_line .success.hours_7,
+    .cal-data-content .matrix-line .cal_event_line .add_work.hours_7 {
+        width: 303px;
+    }
+
+    .cal-data-content .matrix-line .cal_event_line .success.hours_8,
+    .cal-data-content .matrix-line .cal_event_line .add_work.hours_8 {
+        width: 347px;
+    }
+
+    .cal-data-content .matrix-line .cal_event_line.linear,
+    .cal-data-content .matrix-line .cal_event_line .success.linear,
+    .cal-data-content .matrix-line .cal_event_line .add_work.linear {
+        background-image: linear-gradient(-45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+        background-size: 1rem 1rem;
+    }
+
+.active_today {
+    background: #fffad4 !important;
+}
+
+.cal-navline .title_table {
+    position: relative;
+}
+
+    .cal-navline .title_table h3 {
+        color: #003f59;
+        font-weight: 400;
+        text-align: left;
+        margin: 0;
+        font-size: 20px;
+    }
+
+    .cal-navline .title_table .title_btn {
+        position: absolute;
+        right: 5px;
+        top: -5px;
+    }
+
+        .cal-navline .title_table .title_btn a {
+            color: #003f59;
+            font-size: 14px;
+            border: 1px solid #c2d6da;
+            display: inline-block;
+            border-radius: 4px;
+            padding: 5px 12px;
+            cursor: pointer
+        }
+
+            .cal-navline .title_table .title_btn a:hover {
+                border: 1px solid #003f59;
+            }
+
+.tooltip-custom {
+    position: relative;
+    display: block;
+}
+
+    .tooltip-custom .tooltiptext p {
+        margin-bottom: -10px;
+        line-height: 18px;
+    }
+
+    .tooltip-custom .tooltiptext {
+        visibility: hidden;
+        min-width: 150px;
+        background-color: #003f59;
+        border: 1px solid #5bbce4;
+        color: #e3f4f7;
+        text-align: left;
+        border-radius: 6px;
+        padding: 10px 10px 20px 10px;
+        font-size: 12px;
+        position: absolute;
+        z-index: 101;
+        top: -110%;
+        left: 30%;
+        margin-left: -60px;
+    }
+
+        .tooltip-custom .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #003f59 transparent transparent transparent;
+        }
+
+    .tooltip-custom:hover .tooltiptext {
+        visibility: visible;
+    }

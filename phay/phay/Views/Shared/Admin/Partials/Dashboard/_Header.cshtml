@@ -1,0 +1,200 @@
+﻿@using ASC.LIB.Common
+<div class="page-header navbar navbar-fixed-top">
+    <div class="page-header-inner ">
+        <div class="page-logo">
+            <a href="index.html">
+                <img src="~/Content/Dashboard/images/logo.png" alt="logo" class="logo-default" />
+            </a>
+            <div class="menu-toggler sidebar-toggler">
+                <span></span>
+            </div>
+        </div>
+        <a href="javascript:;" class="menu-toggler menu-toggler-top-left responsive-toggler" data-toggle="collapse" data-target=".page-sidebar-top">
+            <i class="asc-icon asc-icon-38"></i>
+        </a>
+        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".page-sidebar">
+            <i class="asc-icon asc-icon-38"></i>
+        </a>
+        @*<div class="top-menu-left">
+                <div class="navbar-collapse collapse  page-sidebar-top">
+                    <ul class="nav navbar-nav" data-nav-type="accordion">
+                        <li>
+                            <a class="badge_thongbao" href="javascript:">
+                                Thông báo
+
+                            </a>
+                        </li>
+                        <li>
+                            <a class="badge_lichcongtac" href="javascript:">
+                                Lịch công tác
+
+                            </a>
+                        </li>
+                        <li>
+                            <a class="badge_thuden" href="javascript:">
+                                Hộp thư
+                                <span class="badge badge-default"> 7 </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="badge_dangkyvang" href="javascript:">
+                                Đăng ký vắng
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="badge_yeucaukhachhang" href="javascript:">
+                                Yêu cầu
+                            </a>
+                        </li>
+                        <li>
+                            <a class="badge_yeucaukhachhang" href="javascript:">
+                                Yêu cầu
+                            </a>
+                        </li>
+                        <li>
+                            <a class="badge_congviecduan" href="javascript:">
+                                Công việc
+                                <span class="badge badge-default"> 7 </span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>*@
+        <div class="top-menu">
+            <ul class="nav navbar-nav pull-right">
+
+                @*<li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                            <i class="asc-icon asc-icon-1"></i>
+                            <span class="badge badge-default"> 7 </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="external">
+                                <h3>
+                                    <span class="bold">12 pending</span> notifications
+                                </h3>
+                                <a href="page_user_profile_1.html">view all</a>
+                            </li>
+                            <li>
+                                <ul class="dropdown-menu-list">
+                                    <li>
+                                        <a href="javascript:;">
+                                            <span class="time">just now</span>
+                                            <span class="details">
+                                                New user registered.
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <span class="time">3 mins</span>
+                                            <span class="details">
+                                                Server #12 overloaded.
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <span class="time">10 mins</span>
+                                            <span class="details">
+                                                Server #2 not responding.
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                            <i class="asc-icon asc-icon-2"></i>
+                            <span class="badge badge-default"> 4 </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="external">
+                                <h3>
+                                    You have
+                                    <span class="bold">7 New</span> Messages
+                                </h3>
+                                <a href="app_inbox.html">view all</a>
+                            </li>
+                            <li>
+                                <ul class="dropdown-menu-list">
+                                    <li>
+                                        <a href="#">
+                                            <span class="photo">
+                                                <img src="~/Content/Dashboard/images/avatar2.jpg"  class="img-circle"/>
+                                            </span>
+                                            <span class="subject">
+                                                <span class="from"> Lisa Wong </span>
+                                                <span class="time">Just Now </span>
+                                            </span>
+                                            <span class="message"> Vivamus sed auctor nibh congue nibh. auctor nibh auctor nibh... </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="photo">
+                                                <img src="~/Content/Dashboard/images/avatar3.jpg" class="img-circle" alt="">
+                                            </span>
+                                            <span class="subject">
+                                                <span class="from"> Richard Doe </span>
+                                                <span class="time">16 mins </span>
+                                            </span>
+                                            <span class="message"> Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="photo">
+                                                <img src="~/Content/Dashboard/images/avatar1.jpg" class="img-circle" alt="">
+                                            </span>
+                                            <span class="subject">
+                                                <span class="from"> Bob Nilson </span>
+                                                <span class="time">2 hrs </span>
+                                            </span>
+                                            <span class="message"> Vivamus sed nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>*@
+                <li class="dropdown dropdown-user">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                        <span class="alphabet-avatar bg-yellow-crusta">H </span>
+                        <span class="username username-hide-on-mobile"> Nguyễn Mạnh Hùng </span>
+                        <span class="asc-icon arrow icon-size-10 asc-icon-39"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-default">
+                        <li>
+                            <a href="#">
+                                <i class="asc-icon icon-color-black asc-icon-14"></i>
+                                Xóa Cache
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="asc-icon icon-color-black asc-icon-15"></i>
+                                Đổi mật khẩu
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="asc-icon icon-color-black asc-icon-16"></i>
+                                Đăng xuất
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown dropdown-quick-sidebar-toggler">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <i class="asc-icon asc-icon-41"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="clearfix"> </div>

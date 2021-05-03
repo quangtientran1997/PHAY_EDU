@@ -1,0 +1,45 @@
+﻿.tb-kq-import {
+    width: 100%;
+    margin: 0px auto;
+    border-collapse: collapse;
+}
+
+    .tb-kq-import td, .tb-kq-import th {
+        /*text-align: center;*/
+        /*border: 1px solid #d9dee4 !important;*/
+        padding: 2px;
+    }
+
+    .tb-kq-import thead td, .tb-kq-import thead th {
+        background-color: #ebeef0 !important;
+        color: #003f59;
+        font-weight: bold;
+        vertical-align: middle;
+        text-align:center !important;
+    }
+
+    .tb-kq-import tbody tr:nth-child(2n+2) {
+        background-color: #ebeef0 !important;
+    }
+.s_sup {
+    color: #e0e0e0;
+    padding: 0px 3px;
+}
+.text-left{
+    text-align:left !important;
+}
+.text-right {
+    text-align: right !important;
+}
+.text-center{
+    text-align:center !important;
+}
+.box-scroll-top-container, .wrapper2 {
+    /*width: 300px;*/
+    border: none 0px RED;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.box-scroll-top-container, .box-scroll-top-container div {
+    height: 20px;
+}

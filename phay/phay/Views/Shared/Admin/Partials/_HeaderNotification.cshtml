@@ -1,0 +1,14 @@
+﻿@{
+    try
+    {
+        if (ASC.LIB.Common.CommonBase.HeThongWeb == (int)ASC.LIB.Common.Enum_HeThongWeb.EOFFICE ||
+                ASC.LIB.Common.CommonBase.HeThongWeb == (int)ASC.LIB.Common.Enum_HeThongWeb.ASC)
+        {
+            Html.RenderAction("HeaderNotification", "Notification");
+        }
+    }
+    catch (Exception)
+    {
+    }
+}
+

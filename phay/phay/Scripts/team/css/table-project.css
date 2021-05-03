@@ -1,0 +1,170 @@
+.table-project {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    color: #138ad4;
+    border: 1px solid #eaeaea;
+    overflow-x: auto;
+}
+
+    .table-project * {
+        font-family: 'Arial';
+        font-size: 14px;
+        border-spacing: 0;
+    }
+
+    .table-project tr td {
+        padding: 5px 10px;
+        position: relative
+    }
+
+    .table-project .table-content {
+        width: 100%;
+    }
+
+        .table-project .table-content thead {
+            color: #fff;
+            border-bottom: 1px solid #eaeaea
+        }
+
+            .table-project .table-content thead tr:nth-child(1) td {
+                background-color: #64bdd9;
+                text-transform: uppercase;
+            }
+
+    .table-project thead tr td {
+        border-bottom: 0.5px solid #a8e3f3 !important;
+    }
+
+    .table-project .table-content thead tr:nth-child(2) td {
+        background-color: #64c3de
+    }
+
+    .table-project .table-content tbody tr:nth-child(odd) td {
+        background-color: #e7e7e7;
+    }
+
+    .table-project .table-content tr td:first-child {
+        border-left: none
+    }
+
+    .table-project .table-content tr td {
+        border-left: 0.5px solid #eaeaea;
+        /*min-width: 100px !important;*/
+    }
+
+    .table-project thead tr td {
+        border-bottom: 0.5px solid #a8e3f3 !important;
+        border-left: 0.5px solid #a8e3f3 !important;
+    }
+
+.table-project-tooltip {
+    position: relative;
+}
+
+    .table-project-tooltip .tooltiptext {
+        visibility: hidden;
+        background-color: #f6f2a8;
+        font-weight: 400;
+        color: #915f2c;
+        text-align: left;
+        padding: 5px 10px;
+        border-radius: 4px;
+        position: absolute;
+        z-index: 1;
+        width: 290px;
+        top: 100%;
+        left: 50%;
+        margin-left: -150px;
+        text-transform: capitalize;
+    }
+
+        .table-project-tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent #f6f2a8 transparent;
+        }
+
+        .table-project-tooltip .tooltiptext > p {
+            margin: 0;
+            margin-bottom: 5px;
+            padding: 0;
+        }
+
+        .table-project-tooltip .tooltiptext .textbold {
+            font-weight: 700;
+            color: #915f2c
+        }
+
+    .table-project-tooltip:hover .tooltiptext {
+        visibility: visible;
+    }
+
+.table-project .table-content thead tr:nth-child(1) td:nth-child(1) {
+    background-image: linear-gradient(to bottom left, #64c3de calc(50% - 1px), #a8e3f3, #52b5d5 calc(50% + 1px));
+}
+
+    .table-project .table-content thead tr:nth-child(1) td:nth-child(1) .sup {
+        display: block;
+        position: relative;
+        width: 50%;
+        float: left;
+        padding-top: 15%;
+        line-height: 100%;
+        text-align: center;
+        z-index: 1;
+        color: #fff;
+        text-transform: capitalize;
+    }
+
+    .table-project .table-content thead tr:nth-child(1) td:nth-child(1) .inf {
+        display: block;
+        position: relative;
+        width: 50%;
+        float: left;
+        padding-bottom: 15%;
+        line-height: 100%;
+        text-align: center;
+        z-index: 1;
+        color: #fff;
+        text-transform: capitalize;
+    }
+
+.table-project .check {
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    display: inline-block
+}
+
+    .table-project .check.ked {
+        background-image: url('../images/check-circle.png');
+    }
+
+    .table-project .check.close {
+        background-image: url('../images/close.png');
+    }
+
+.table-project .title-da {
+    color: #003f65 !important;
+    font-weight: bold;
+    text-align:left;
+}
+.table-project .text-mota {
+    text-align: left;
+    font-size: 11px;
+    color: #003f7a;
+    padding-top: 5px;
+}
+    .table-project .text-mota span {
+        font-size: 11px;
+    }
+.table-project .bg-success {
+    background-color: #c2f7c4 !important;
+}

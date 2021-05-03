@@ -1,0 +1,36 @@
+﻿text[text-anchor="end"]{
+    display:none;
+}
+.item-chart {
+    font-size: 12px !important;
+}
+.color1-chart {
+    color: #2196F3
+}
+.color2-chart{
+	color: #4CAF50
+}
+.color3-chart{
+	color: #FF9800
+}
+.color4-chart{
+	color: #E91E63
+}
+.color5-chart{
+	color: #FFC107
+}
+.color6-chart{
+	color: #F44336
+}
+.color7-chart{
+	color: #8BC34A
+}
+.color8-chart{
+	color: #00BCD4
+}
+.color9-chart{
+	color: #9C27B0
+}
+.color10-chart{
+	color: #009688
+}

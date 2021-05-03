@@ -1,0 +1,47 @@
+/* bảng thống kê lịch giảng coi thi*/
+.table_thongkegiogiang,.table_thongkegiogiang tbody tr,.table_thongkegiogiang tbody tr td{
+    border: 1px solid #d2dbe8;
+}
+.table_thongkegiogiang tbody tr:hover{
+	background: #f2f4ff!important; 
+}
+.table_thongkegiogiang tbody tr:first-child{
+	background: #c7e6fa!important;
+    color: #0c6fa0;
+    border-bottom: 2px solid #7bcbff
+}
+.table_thongkegiogiang tbody tr:nth-child(odd){
+	background: #f0f0f0;
+}
+.table_thongkegiogiang .tr-head-group{
+	background: #fff6e1!important;}
+.table_thongkegiogiang .tr-head-group td{
+	color: #0387c9;
+    font-weight: 700;
+    text-align: center;
+}
+.table_thongkegiogiang .tr-head-group span{
+	color:#ff4700;
+}.table_thongkegiogiang .tr-head-group span.bo{
+	color:#0387c9;
+}.table_thongkegiogiang tbody tr td{
+	color: #0c6fa0;
+    vertical-align: middle;    
+}
+.table_thongkegiogiang .tblThongKe{
+	border:none; margin-left: 40px;
+}
+.table_thongkegiogiang .tblThongKe tbody tr{
+	background: none!important;border:none;
+	
+}.table_thongkegiogiang .tblThongKe tbody tr td{
+	border:none;
+	padding: 5px;
+	font-weight: 600;
+}
+.table_thongkegiogiang .tong_thongkelich{
+	    padding: 30px;
+    background-color: #c7e6fa;
+    border-top: 3px solid #7bcbff;
+    font-size: 15px;
+}

@@ -1,0 +1,454 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PHAY_EDUModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ACL_Action">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDManHinh" Type="int" Nullable="false" />
+          <Property Name="TenAction" Type="nvarchar" MaxLength="200" />
+          <Property Name="TenController" Type="nvarchar" MaxLength="200" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="200" />
+          <Property Name="Loai" Type="int" />
+          <Property Name="Ten" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="ACL_CauHinhManHinh">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDManHinh" Type="int" />
+          <Property Name="TenCauHinhManHinh" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="ACL_ManHinh">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDThamChieu" Type="int" />
+          <Property Name="TenManHinh" Type="nvarchar" MaxLength="200" />
+          <Property Name="TenAction" Type="varchar" MaxLength="200" />
+          <Property Name="TenController" Type="varchar" MaxLength="200" />
+          <Property Name="Area" Type="varchar" MaxLength="200" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="1000" />
+          <Property Name="SoThuTu" Type="int" />
+          <Property Name="CssClass" Type="varchar" MaxLength="100" />
+          <Property Name="GroupManHinh" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsSuDung" Type="bit" />
+          <Property Name="IDNguoiTao" Type="int" />
+          <Property Name="NgayTao" Type="datetime" />
+          <Property Name="IDNguoiCapNhat" Type="int" />
+          <Property Name="NgayCapNhat" Type="datetime" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="IDNguoiDelete" Type="int" />
+          <Property Name="NgayDelete" Type="datetime" />
+          <Property Name="CssBadge" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ACL_NhomNguoiDung">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDThamChieu" Type="int" />
+          <Property Name="HoDem" Type="nvarchar" MaxLength="100" />
+          <Property Name="Ten" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="TenDangNhap" Type="nvarchar" MaxLength="50" />
+          <Property Name="MatKhau" Type="nvarchar" MaxLength="200" />
+          <Property Name="Email" Type="varchar" MaxLength="200" />
+          <Property Name="SoDienThoai" Type="varchar" MaxLength="200" />
+          <Property Name="SoDiDong" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsRoot" Type="bit" />
+          <Property Name="IsNhom" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="LoaiDoiTuong" Type="int" />
+          <Property Name="IDMapDoiTuong" Type="int" />
+          <Property Name="Token" Type="uniqueidentifier" />
+          <Property Name="IDNguoiTao" Type="int" />
+          <Property Name="NgayTao" Type="datetime" />
+          <Property Name="IDNguoiCapNhat" Type="int" />
+          <Property Name="NgayCapNhat" Type="datetime" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="IDNguoiDelete" Type="int" />
+          <Property Name="NgayDelete" Type="datetime" />
+          <Property Name="IDHinhDaiDien" Type="int" />
+          <Property Name="MaXacThuc" Type="nvarchar" MaxLength="50" />
+          <Property Name="NgayTaoMaXacThuc" Type="datetime" />
+          <Property Name="NgayHetHanMaXacThuc" Type="datetime" />
+          <Property Name="SoThuTu" Type="int" />
+        </EntityType>
+        <EntityType Name="ACL_PhanQuyen">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDAction" Type="int" Nullable="false" />
+          <Property Name="IDNhomNguoiDung" Type="int" Nullable="false" />
+          <Property Name="IsChoPhep" Type="bit" />
+          <Property Name="IDNguoiTao" Type="int" />
+          <Property Name="NgayTao" Type="datetime" />
+          <Property Name="IDNguoiCapNhat" Type="int" />
+          <Property Name="NgayCapNhat" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ACL_TaiKhoan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDThamChieu" Type="int" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="250" />
+          <Property Name="TenDangNhap" Type="nvarchar" MaxLength="50" />
+          <Property Name="MatKhau" Type="nvarchar" MaxLength="200" />
+          <Property Name="Email" Type="varchar" MaxLength="200" />
+          <Property Name="SoDienThoai" Type="varchar" MaxLength="200" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsRoot" Type="bit" />
+          <Property Name="IDNguoiTao" Type="int" />
+          <Property Name="NgayTao" Type="datetime" />
+          <Property Name="IDNguoiCapNhat" Type="int" />
+          <Property Name="NgayCapNhat" Type="datetime" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="IDNguoiDelete" Type="int" />
+        </EntityType>
+        <Function Name="SP_ACL_QuyenNhom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDNhomManHinh" Type="int" Mode="In" />
+          <Parameter Name="IDUser" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="PHAY_EDUModelStoreContainer">
+          <EntitySet Name="ACL_Action" EntityType="Self.ACL_Action" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ACL_CauHinhManHinh" EntityType="Self.ACL_CauHinhManHinh" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ACL_ManHinh" EntityType="Self.ACL_ManHinh" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ACL_NhomNguoiDung" EntityType="Self.ACL_NhomNguoiDung" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ACL_PhanQuyen" EntityType="Self.ACL_PhanQuyen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ACL_TaiKhoan" EntityType="Self.ACL_TaiKhoan" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PHAY_EDUModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ACL_Action">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDManHinh" Type="Int32" Nullable="false" />
+          <Property Name="TenAction" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TenController" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="GhiChu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Loai" Type="Int32" />
+          <Property Name="Ten" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ACL_CauHinhManHinh">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDManHinh" Type="Int32" />
+          <Property Name="TenCauHinhManHinh" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ACL_ManHinh">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDThamChieu" Type="Int32" />
+          <Property Name="TenManHinh" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TenAction" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TenController" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Area" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="GhiChu" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="SoThuTu" Type="Int32" />
+          <Property Name="CssClass" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="GroupManHinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsSuDung" Type="Boolean" />
+          <Property Name="IDNguoiTao" Type="Int32" />
+          <Property Name="NgayTao" Type="DateTime" Precision="3" />
+          <Property Name="IDNguoiCapNhat" Type="Int32" />
+          <Property Name="NgayCapNhat" Type="DateTime" Precision="3" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="IDNguoiDelete" Type="Int32" />
+          <Property Name="NgayDelete" Type="DateTime" Precision="3" />
+          <Property Name="CssBadge" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ACL_NhomNguoiDung">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDThamChieu" Type="Int32" />
+          <Property Name="HoDem" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Ten" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenDangNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MatKhau" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SoDienThoai" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SoDiDong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsRoot" Type="Boolean" />
+          <Property Name="IsNhom" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="LoaiDoiTuong" Type="Int32" />
+          <Property Name="IDMapDoiTuong" Type="Int32" />
+          <Property Name="Token" Type="Guid" />
+          <Property Name="IDNguoiTao" Type="Int32" />
+          <Property Name="NgayTao" Type="DateTime" Precision="3" />
+          <Property Name="IDNguoiCapNhat" Type="Int32" />
+          <Property Name="NgayCapNhat" Type="DateTime" Precision="3" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="IDNguoiDelete" Type="Int32" />
+          <Property Name="NgayDelete" Type="DateTime" Precision="3" />
+          <Property Name="IDHinhDaiDien" Type="Int32" />
+          <Property Name="MaXacThuc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NgayTaoMaXacThuc" Type="DateTime" Precision="3" />
+          <Property Name="NgayHetHanMaXacThuc" Type="DateTime" Precision="3" />
+          <Property Name="SoThuTu" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ACL_PhanQuyen">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDAction" Type="Int32" Nullable="false" />
+          <Property Name="IDNhomNguoiDung" Type="Int32" Nullable="false" />
+          <Property Name="IsChoPhep" Type="Boolean" />
+          <Property Name="IDNguoiTao" Type="Int32" />
+          <Property Name="NgayTao" Type="DateTime" Precision="3" />
+          <Property Name="IDNguoiCapNhat" Type="Int32" />
+          <Property Name="NgayCapNhat" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ACL_TaiKhoan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDThamChieu" Type="Int32" />
+          <Property Name="HoTen" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TenDangNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MatKhau" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SoDienThoai" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DiaChi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsRoot" Type="Boolean" />
+          <Property Name="IDNguoiTao" Type="Int32" />
+          <Property Name="NgayTao" Type="DateTime" Precision="3" />
+          <Property Name="IDNguoiCapNhat" Type="Int32" />
+          <Property Name="NgayCapNhat" Type="DateTime" Precision="3" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="IDNguoiDelete" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="HTWEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ACL_Action" EntityType="Self.ACL_Action" />
+          <EntitySet Name="ACL_CauHinhManHinh" EntityType="Self.ACL_CauHinhManHinh" />
+          <EntitySet Name="ACL_ManHinh" EntityType="Self.ACL_ManHinh" />
+          <EntitySet Name="ACL_NhomNguoiDung" EntityType="Self.ACL_NhomNguoiDung" />
+          <EntitySet Name="ACL_PhanQuyen" EntityType="Self.ACL_PhanQuyen" />
+          <EntitySet Name="ACL_TaiKhoan" EntityType="Self.ACL_TaiKhoan" />
+          <FunctionImport Name="SP_ACL_QuyenNhom" ReturnType="Collection(PHAY_EDUModel.SP_ACL_QuyenNhom_Result)">
+            <Parameter Name="IDNhomManHinh" Mode="In" Type="Int32" />
+            <Parameter Name="IDUser" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="SP_ACL_QuyenNhom_Result">
+          <Property Type="Int32" Name="IDNhom" Nullable="false" />
+          <Property Type="String" Name="TenNhom" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="GroupManHinh" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="TenManHinh" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="GroupSubManHinh" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TenAction" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="TenController" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ActionTenController" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ActionTenAction" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Area" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="SoThuTu" Nullable="true" />
+          <Property Type="Int32" Name="SoThuTuNhom" Nullable="true" />
+          <Property Type="Int32" Name="IDAction" Nullable="false" />
+          <Property Type="Int32" Name="IDQuyen" Nullable="false" />
+          <Property Type="Int32" Name="LoaiQuyen" Nullable="true" />
+          <Property Type="String" Name="TenQuyen" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="GhiChuQuyen" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="CssNhom" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="CssManHinh" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="CssBadgeNhom" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="CssBadgeManHinh" Nullable="false" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PHAY_EDUModelStoreContainer" CdmEntityContainer="HTWEntities">
+          <EntitySetMapping Name="ACL_Action">
+            <EntityTypeMapping TypeName="PHAY_EDUModel.ACL_Action">
+              <MappingFragment StoreEntitySet="ACL_Action">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDManHinh" ColumnName="IDManHinh" />
+                <ScalarProperty Name="TenAction" ColumnName="TenAction" />
+                <ScalarProperty Name="TenController" ColumnName="TenController" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="Loai" ColumnName="Loai" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACL_CauHinhManHinh">
+            <EntityTypeMapping TypeName="PHAY_EDUModel.ACL_CauHinhManHinh">
+              <MappingFragment StoreEntitySet="ACL_CauHinhManHinh">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDManHinh" ColumnName="IDManHinh" />
+                <ScalarProperty Name="TenCauHinhManHinh" ColumnName="TenCauHinhManHinh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACL_ManHinh">
+            <EntityTypeMapping TypeName="PHAY_EDUModel.ACL_ManHinh">
+              <MappingFragment StoreEntitySet="ACL_ManHinh">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDThamChieu" ColumnName="IDThamChieu" />
+                <ScalarProperty Name="TenManHinh" ColumnName="TenManHinh" />
+                <ScalarProperty Name="TenAction" ColumnName="TenAction" />
+                <ScalarProperty Name="TenController" ColumnName="TenController" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="SoThuTu" ColumnName="SoThuTu" />
+                <ScalarProperty Name="CssClass" ColumnName="CssClass" />
+                <ScalarProperty Name="GroupManHinh" ColumnName="GroupManHinh" />
+                <ScalarProperty Name="IsSuDung" ColumnName="IsSuDung" />
+                <ScalarProperty Name="IDNguoiTao" ColumnName="IDNguoiTao" />
+                <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
+                <ScalarProperty Name="IDNguoiCapNhat" ColumnName="IDNguoiCapNhat" />
+                <ScalarProperty Name="NgayCapNhat" ColumnName="NgayCapNhat" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IDNguoiDelete" ColumnName="IDNguoiDelete" />
+                <ScalarProperty Name="NgayDelete" ColumnName="NgayDelete" />
+                <ScalarProperty Name="CssBadge" ColumnName="CssBadge" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACL_NhomNguoiDung">
+            <EntityTypeMapping TypeName="PHAY_EDUModel.ACL_NhomNguoiDung">
+              <MappingFragment StoreEntitySet="ACL_NhomNguoiDung">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDThamChieu" ColumnName="IDThamChieu" />
+                <ScalarProperty Name="HoDem" ColumnName="HoDem" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+                <ScalarProperty Name="SoDiDong" ColumnName="SoDiDong" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="IsRoot" ColumnName="IsRoot" />
+                <ScalarProperty Name="IsNhom" ColumnName="IsNhom" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="LoaiDoiTuong" ColumnName="LoaiDoiTuong" />
+                <ScalarProperty Name="IDMapDoiTuong" ColumnName="IDMapDoiTuong" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="IDNguoiTao" ColumnName="IDNguoiTao" />
+                <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
+                <ScalarProperty Name="IDNguoiCapNhat" ColumnName="IDNguoiCapNhat" />
+                <ScalarProperty Name="NgayCapNhat" ColumnName="NgayCapNhat" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IDNguoiDelete" ColumnName="IDNguoiDelete" />
+                <ScalarProperty Name="NgayDelete" ColumnName="NgayDelete" />
+                <ScalarProperty Name="IDHinhDaiDien" ColumnName="IDHinhDaiDien" />
+                <ScalarProperty Name="MaXacThuc" ColumnName="MaXacThuc" />
+                <ScalarProperty Name="NgayTaoMaXacThuc" ColumnName="NgayTaoMaXacThuc" />
+                <ScalarProperty Name="NgayHetHanMaXacThuc" ColumnName="NgayHetHanMaXacThuc" />
+                <ScalarProperty Name="SoThuTu" ColumnName="SoThuTu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACL_PhanQuyen">
+            <EntityTypeMapping TypeName="PHAY_EDUModel.ACL_PhanQuyen">
+              <MappingFragment StoreEntitySet="ACL_PhanQuyen">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDAction" ColumnName="IDAction" />
+                <ScalarProperty Name="IDNhomNguoiDung" ColumnName="IDNhomNguoiDung" />
+                <ScalarProperty Name="IsChoPhep" ColumnName="IsChoPhep" />
+                <ScalarProperty Name="IDNguoiTao" ColumnName="IDNguoiTao" />
+                <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
+                <ScalarProperty Name="IDNguoiCapNhat" ColumnName="IDNguoiCapNhat" />
+                <ScalarProperty Name="NgayCapNhat" ColumnName="NgayCapNhat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACL_TaiKhoan">
+            <EntityTypeMapping TypeName="PHAY_EDUModel.ACL_TaiKhoan">
+              <MappingFragment StoreEntitySet="ACL_TaiKhoan">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDThamChieu" ColumnName="IDThamChieu" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="IsRoot" ColumnName="IsRoot" />
+                <ScalarProperty Name="IDNguoiTao" ColumnName="IDNguoiTao" />
+                <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
+                <ScalarProperty Name="IDNguoiCapNhat" ColumnName="IDNguoiCapNhat" />
+                <ScalarProperty Name="NgayCapNhat" ColumnName="NgayCapNhat" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IDNguoiDelete" ColumnName="IDNguoiDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_ACL_QuyenNhom" FunctionName="PHAY_EDUModel.Store.SP_ACL_QuyenNhom">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PHAY_EDUModel.SP_ACL_QuyenNhom_Result">
+                <ScalarProperty Name="IDNhom" ColumnName="IDNhom" />
+                <ScalarProperty Name="TenNhom" ColumnName="TenNhom" />
+                <ScalarProperty Name="GroupManHinh" ColumnName="GroupManHinh" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TenManHinh" ColumnName="TenManHinh" />
+                <ScalarProperty Name="GroupSubManHinh" ColumnName="GroupSubManHinh" />
+                <ScalarProperty Name="TenAction" ColumnName="TenAction" />
+                <ScalarProperty Name="TenController" ColumnName="TenController" />
+                <ScalarProperty Name="ActionTenController" ColumnName="ActionTenController" />
+                <ScalarProperty Name="ActionTenAction" ColumnName="ActionTenAction" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="SoThuTu" ColumnName="SoThuTu" />
+                <ScalarProperty Name="SoThuTuNhom" ColumnName="SoThuTuNhom" />
+                <ScalarProperty Name="IDAction" ColumnName="IDAction" />
+                <ScalarProperty Name="IDQuyen" ColumnName="IDQuyen" />
+                <ScalarProperty Name="LoaiQuyen" ColumnName="LoaiQuyen" />
+                <ScalarProperty Name="TenQuyen" ColumnName="TenQuyen" />
+                <ScalarProperty Name="GhiChuQuyen" ColumnName="GhiChuQuyen" />
+                <ScalarProperty Name="CssNhom" ColumnName="CssNhom" />
+                <ScalarProperty Name="CssManHinh" ColumnName="CssManHinh" />
+                <ScalarProperty Name="CssBadgeNhom" ColumnName="CssBadgeNhom" />
+                <ScalarProperty Name="CssBadgeManHinh" ColumnName="CssBadgeManHinh" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

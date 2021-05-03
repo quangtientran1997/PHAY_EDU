@@ -1,0 +1,222 @@
+﻿.tb-nckh, .tb-hosodangky, .tb-thanhphanthamgia {
+    width: 100%;
+    margin: 0px auto;
+    border-collapse: collapse;
+}
+
+    .tb-nckh th, .tb-hosodangky th, .tb-thanhphanthamgia th {
+        text-align: center;
+    }
+
+    .tb-nckh td, .tb-nckh th, .tb-hosodangky td, .tb-hosodangky th, .tb-thanhphanthamgia td, .tb-thanhphanthamgia th {
+        border: 1px solid rgb(149, 193, 224);
+        padding: 5px 5px;
+        vertical-align: middle;
+    }
+
+    .tb-nckh th, .tb-hosodangky th, .tb-thanhphanthamgia th {
+        background-color: #e1f0f6;
+        color: #003f59;
+    }
+
+    .tb-nckh tbody tr:nth-child(2n+1), .tb-hosodangky tbody tr:nth-child(2n+1), .tb-thanhphanthamgia tbody tr:nth-child(2n+1) {
+        background-color: #eaf4f9;
+    }
+
+.tcenter {
+    text-align: center;
+}
+
+.tRight {
+    text-align: right;
+}
+
+.tab-content {
+    background-color: #fff;
+    padding: 0px 20px;
+    border: 1px solid #ddd;
+    border-top: 0px;
+    padding-bottom: 40px;
+}
+
+.tb-thanhphanthamgia select {
+    width: 95%;
+    height: auto;
+    line-height: 28px;
+    border: 1px solid #d9dee4;
+}
+
+.tb-thanhphanthamgia .txt-khoiluong {
+    width: 105px;
+    text-align: center;
+}
+
+.p-i-save, .p-i-back, .p-i-next, .p-i-accept, .p-i-add, .p-i-delete, .p-i-edit, .p-i-print, .p-i-print1, .p-i-print2,
+.p-i-reset, .p-i-search, .p-i-mail, .p-i-mail-send, .p-i-refresh, .p-i-refresh1, .p-i-refresh2, .p-i-cancel-changes,
+.p-i-detail, .p-i-chart, .p-i-sort-asc, .p-i-sort-desc, .p-i-tree, .p-i-copy, .p-i-sync,
+.p-i-import, .p-i-importData, .p-i-exportData, .p-i-barcode, .p-i-Thanhly, .p-i-Thanhly_gray, .p-i-restore, .p-i-restore_gray, .p-i-transfer, .p-i-clear, .p-i-recycle, .p-i-Bienban, .p-i-scheduler,
+.p-i-close, .p-i-Export, .p-i-Phanquyen, .p-i-Quyetdinhtuyendung, .p-i-Danhgiagiaovien, .p-i-down, .p-i-up, .p-i-map, .p-i-GiaoVien, .p-i-school, .p-i-Xet, .p-i-document, .p-i-linechart, .p-i-TuyChon, .p-i-ThaoTac, .p-i-userGroup, .p-i-recycle_restore, .p-i-copy-row, .p-i-abc, .p-i-remove-view, .p-i-view, .p-i-hand, .p-i-gear, .p-i-lock, .p-i-unlock, .p-i-number, .p-i-extract, .p-i-browse-employees, .p-i-un-accept, .p-i-send, .p-i-but-phe {
+    padding-left: 20px !important;
+    padding-top: 2px;
+    padding-bottom: 6px;
+    margin-left: -5px;
+}
+
+.p-i-delete {
+    background: url('../../images/icons/delete.png') 0px 0px no-repeat !important;
+}
+
+    .p-i-delete.disabled {
+        background: url('../../images/icons/delete_gray.png') 0px 0px no-repeat !important;
+    }
+.p-i-save {
+    background: url('../../images/icons/save.png') 0px 0px no-repeat !important;
+}
+
+.p-i-close {
+    background: url('../../images/icons/close.png') 0px 0px no-repeat !important;
+}
+
+.pmt-attachment {
+    font-size: 13px
+}
+
+.pmt-attachment a {
+    color: #0E5777;
+    font-weight: 700
+}
+
+.pmt-attachment-file li {
+    background-color: #E1EFF6;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 2px;
+    padding: 2px 5px
+}
+
+.pmt-attachment-file {
+    max-height: 80px;
+    list-style: none;
+    overflow: auto;
+    padding-left: 0
+}
+
+    .pmt-attachment-file li:hover {
+        background-color: #90cfee
+    }
+
+    .pmt-attachment-file .remove {
+        font-weight: 700
+    }
+
+        .pmt-attachment-file .remove:hover {
+            color: #0d3245;
+            font-weight: 700
+        }
+
+.pmt-attachment .input-file-attach {
+    position: absolute;
+    top: -9999px
+}
+
+
+/*********************NCKH************************/
+/*  Quản lý đề tài NCKH - Chi tiết đề tài
+    Copy từ WEB.ORG.V2 /Content/admin/css/custom.min.css
+*/
+#QLDT_vertical {
+    height: 100vh;
+    min-height: 500px;
+}
+
+#treeview-CapDoDeTai {
+    margin-top: 15px;
+}
+
+.box-detai .list-group-item {
+    border-left: 0px !important;
+    border-right: 0px !important;
+}
+
+    .box-detai .list-group-item:first-child {
+        border-radius: 0px !important;
+    }
+
+.list-group .item-detai div {
+    font-size: 12px;
+}
+
+    .list-group .item-detai div b {
+        color: #000;
+    }
+
+.box-detai .list-group a:nth-child(2n+1) {
+    background-color: #F1F1F1;
+}
+
+.box-detai .list-group .list-group-item-heading {
+    line-height: 18px;
+}
+
+.box-detai .list-group a:hover {
+    background-color: #daecf4;
+}
+
+.box-header {
+    background-color: #e8e8e8;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.box-chitiet-detai {
+    padding: 0px 10px;
+}
+
+    .box-chitiet-detai table td {
+        padding: 5px 2px;
+    }
+
+.box-tabs-detai .tab-content {
+    min-height: 270px;
+    border: 1px solid #ddd;
+    border-top: 0px;
+    padding: 10px;
+}
+
+#HTML_DeTai .list-group .list-group-item:hover {
+    /*background-color: #daecf4 !important;*/
+}
+
+.list-group .item-detai h4 {
+    font-size: 13px;
+}
+
+.box-chitiet-detai {
+    padding-top: 15px;
+}
+
+.cms-grid-select .k-state-selected {
+    background-color: #c5d9e2 !important;
+    font-weight: bold !important;
+}
+
+.cms-grid-select tr:hover {
+    cursor: pointer;
+}
+
+.cms-grid-select .k-state-selected td {
+    border-color: #a8c3ce !important;
+    border-top: 1px solid #a8c3ce !important;
+}
+
+    .cms-grid-select .k-state-selected td span {
+        color: #003f65 !important;
+    }
+
+.s_sup {
+    color: #e2e2e2;
+    padding-right: 2px;
+}

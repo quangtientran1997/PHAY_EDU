@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/chat-panel.css">
+    <script type="text/javascript" src="js/jquery-3.4.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
+</head>
+<body>
+<fuse-sidebar class="chat-panel right-chat-panel right-positioned folded open locked-open animations-enabled ng-star-inserted" style="width: 70px; min-width: 70px; max-width: 70px;">
+    <chat-panel>
+        <div class="header mat-elevation-z4 primary" fxlayout="row" fxlayoutalign="space-between center">
+            <!---->
+            <!---->
+            <div class="title ng-star-inserted" fxlayout="row" fxlayoutalign="start center">
+                <img class="avatar mx-16" src="assets/images/avatars/alice.jpg" style="display: none">
+                <img class="material-icons" src="assets/icons/chat-ib.png">
+                <h3>Nhóm Chát</h3>
+            </div>
+            <!---->
+            <button class="toggle-sidebar-folded mr-8 mat-icon-button" fxhide="" fxshow.gt-md="" mat-icon-button="" style="">
+                <img  src="assets/icons/close-ib.png" width="40" height="40">                
+            </button>
+            <!-- <button class="toggle-sidebar-open mr-8 mat-icon-button" fxhide.gt-md="" mat-icon-button="" style="display: none;"><span class="mat-button-wrapper"><mat-icon class="secondary-text mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true">close</mat-icon></span>
+                <div class="mat-button-ripple mat-ripple mat-button-ripple-round" matripple=""></div>
+                <div class="mat-button-focus-overlay"></div>
+            </button> -->
+        </div>
+        <div class="content" style="flex-direction: row; box-sizing: border-box; display: flex;">
+            <div fuseperfectscrollbar="" id="contacts-list">
+                <!---->
+                <div class="contacts-list-item ng-star-inserted online"><img class="avatar" mattooltipposition="left" aria-describedby="cdk-describedby-message-6" cdk-describedby-host="" src="assets/images/avatars/alice.jpg" >
+                    <!---->
+                    <div class="unread-count ng-star-inserted">2</div>
+                    <div class="status-icon online"></div>
+                </div>
+                <div class="contacts-list-item ng-star-inserted do-not-disturb"><img class="avatar" mattooltipposition="left" aria-describedby="cdk-describedby-message-7" cdk-describedby-host="" src="assets/images/avatars/Arnold.jpg" >
+                    <!---->
+                    <div class="status-icon do-not-disturb"></div>
+                </div>
+                <div class="contacts-list-item ng-star-inserted do-not-disturb"><img class="avatar" mattooltipposition="left" aria-describedby="cdk-describedby-message-8" cdk-describedby-host="" src="assets/images/avatars/Barrera.jpg" >
+                    <!---->
+                    <div class="status-icon do-not-disturb"></div>
+                </div>
+                <div class="contacts-list-item ng-star-inserted offline"><img class="avatar" mattooltipposition="left" aria-describedby="cdk-describedby-message-9" cdk-describedby-host="" src="assets/images/avatars/Blair.jpg" >
+                    <!---->
+                    <div class="unread-count ng-star-inserted">3</div>
+                    <div class="status-icon offline"></div>
+                </div>
+                <div class="contacts-list-item ng-star-inserted offline"><img class="avatar" mattooltipposition="left" aria-describedby="cdk-describedby-message-10" cdk-describedby-host="" src="assets/images/avatars/Boyle.jpg" >
+                    <!---->
+                    <div class="unread-count ng-star-inserted">1</div>
+                    <div class="status-icon offline"></div>
+                </div>
+                <div class="contacts-list-item ng-star-inserted offline"><img class="avatar" mattooltipposition="left" aria-describedby="cdk-describedby-message-11" cdk-describedby-host="" src="assets/images/avatars/Christy.jpg" >
+                    <!---->
+                    <div class="status-icon offline"></div>
+                </div>
+                <div class="contacts-list-item ng-star-inserted online"><img class="avatar" mattooltipposition="left" aria-describedby="cdk-describedby-message-12" cdk-describedby-host="" src="assets/images/avatars/Copeland.jpg" >
+                    <!---->
+                    <div class="status-icon online"></div>
+                </div>
+                <div class="contacts-list-item ng-star-inserted away"><img class="avatar" mattooltipposition="left" aria-describedby="cdk-describedby-message-13" cdk-describedby-host="" src="assets/images/avatars/Estes.jpg" >
+                    <!---->
+                    <div class="status-icon away"></div>
+                </div>
+                <div class="contacts-list-item ng-star-inserted offline"><img class="avatar" mattooltipposition="left" aria-describedby="cdk-describedby-message-14" cdk-describedby-host="" src="assets/images/avatars/Harper.jpg" >
+                    <!---->
+                    <div class="status-icon offline"></div>
+                </div>
+                <div class="contacts-list-item ng-star-inserted away"><img class="avatar" mattooltipposition="left" aria-describedby="cdk-describedby-message-15" cdk-describedby-host="" src="assets/images/avatars/Helen.jpg" >
+                    <!---->
+                    <div class="status-icon away"></div>
+                </div>
+                <div class="contacts-list-item ng-star-inserted offline"><img class="avatar" mattooltipposition="left" aria-describedby="cdk-describedby-message-16" cdk-describedby-host="" src="assets/images/avatars/Henderson.jpg" >
+                    <!---->
+                    <div class="status-icon offline"></div>
+                </div>
+                <div class="contacts-list-item ng-star-inserted online"><img class="avatar" mattooltipposition="left" aria-describedby="cdk-describedby-message-17" cdk-describedby-host="" src="assets/images/avatars/Josefina.jpg" >
+                    <!---->
+                    <div class="status-icon online"></div>
+                </div>
+                <div class="contacts-list-item ng-star-inserted away"><img class="avatar" mattooltipposition="left" aria-describedby="cdk-describedby-message-18" cdk-describedby-host="" src="assets/images/avatars/Katina.jpg" >
+                    <!---->
+                    <div class="status-icon away"></div>
+                </div>
+                <div class="contacts-list-item ng-star-inserted do-not-disturb"><img class="avatar" mattooltipposition="left" aria-describedby="cdk-describedby-message-19" cdk-describedby-host="" src="assets/images/avatars/Lily.jpg" >
+                    <!---->
+                    <div class="unread-count ng-star-inserted">10</div>
+                    <div class="status-icon do-not-disturb"></div>
+                </div>
+                <div class="contacts-list-item ng-star-inserted away"><img class="avatar" mattooltipposition="left" aria-describedby="cdk-describedby-message-20" cdk-describedby-host="" src="assets/images/avatars/Mai.jpg" >
+                    <!---->
+                    <div class="status-icon away"></div>
+                </div>
+                <div class="contacts-list-item ng-star-inserted do-not-disturb"><img class="avatar" mattooltipposition="left" aria-describedby="cdk-describedby-message-21" cdk-describedby-host="" src="assets/images/avatars/Nancy.jpg" >
+                    <!---->
+                    <div class="status-icon do-not-disturb"></div>
+                </div>
+                <div class="contacts-list-item ng-star-inserted do-not-disturb"><img class="avatar" mattooltipposition="left" aria-describedby="cdk-describedby-message-22" cdk-describedby-host="" src="assets/images/avatars/Nora.jpg" >
+                    <!---->
+                    <div class="unread-count ng-star-inserted">7</div>
+                    <div class="status-icon do-not-disturb"></div>
+                </div>
+                <div class="contacts-list-item ng-star-inserted away"><img class="avatar" mattooltipposition="left" aria-describedby="cdk-describedby-message-23" cdk-describedby-host="" src="assets/images/avatars/Odessa.jpg" >
+                    <!---->
+                    <div class="unread-count ng-star-inserted">1</div>
+                    <div class="status-icon away"></div>
+                </div>
+                <div class="contacts-list-item ng-star-inserted offline"><img class="avatar" mattooltipposition="left" aria-describedby="cdk-describedby-message-24" cdk-describedby-host="" src="assets/images/avatars/Reyna.jpg" >
+                    <!---->
+                    <div class="status-icon offline"></div>
+                </div>
+                <div class="contacts-list-item ng-star-inserted online"><img class="avatar" mattooltipposition="left" aria-describedby="cdk-describedby-message-25" cdk-describedby-host="" src="assets/images/avatars/Shauna.jpg" >
+                    <!---->
+                    <div class="status-icon online"></div>
+                </div>
+                <div class="contacts-list-item ng-star-inserted online"><img class="avatar" mattooltipposition="left" aria-describedby="cdk-describedby-message-26" cdk-describedby-host="" src="assets/images/avatars/Shepard.jpg" >
+                    <!---->
+                    <div class="status-icon online"></div>
+                </div>
+                <div class="contacts-list-item ng-star-inserted do-not-disturb"><img class="avatar" mattooltipposition="left" aria-describedby="cdk-describedby-message-27" cdk-describedby-host="" src="assets/images/avatars/Tillman.jpg" >
+                    <!---->
+                    <div class="unread-count ng-star-inserted">99+</div>
+                    <div class="status-icon do-not-disturb"></div>
+                </div>
+                <div class="contacts-list-item ng-star-inserted away"><img class="avatar" mattooltipposition="left" aria-describedby="cdk-describedby-message-28" cdk-describedby-host="" src="assets/images/avatars/Trevino.jpg" >
+                    <!---->
+                    <div class="status-icon away"></div>
+                </div>
+                <div class="contacts-list-item ng-star-inserted do-not-disturb"><img class="avatar" mattooltipposition="left" aria-describedby="cdk-describedby-message-29" cdk-describedby-host="" src="assets/images/avatars/Tyson.jpg" >
+                    <!---->
+                    <div class="status-icon do-not-disturb"></div>
+                </div>
+                <div class="contacts-list-item ng-star-inserted online"><img class="avatar" mattooltipposition="left" aria-describedby="cdk-describedby-message-30" cdk-describedby-host="" src="assets/images/avatars/Velazquez.jpg" >
+                    <!---->
+                    <div class="status-icon online"></div>
+                </div>
+            </div>
+            <div fxflex="1 1 auto" fxlayout="column" id="chat" style="flex-direction: column; box-sizing: border-box; display: flex; flex: 1 1 auto;">
+                <div class="messages ps" fuseperfectscrollbar="" fxflex="1 1 auto" id="messages" style="flex: 1 1 auto; box-sizing: border-box;">
+                    <!---->
+                    <!---->
+                    <!---->
+                    <!---->
+                    <div class="message-row me first-of-group last-of-group ng-star-inserted">
+                        <div class="bubble"><div class="message">It’s not my money, you know. I will eat my breakfast and then I will come to the meeting room.</div><div class="time secondary-text">3/22/17, 4:45 PM</div></div>
+                    </div>
+                    <div class="message-row contact first-of-group ng-star-inserted">
+                        <div class="bubble"><div class="message">You are the worst!</div>
+                        <div class="time secondary-text">3/22/17, 4:05 PM</div></div>
+                    </div>
+                    <div class="message-row contact ng-star-inserted">
+                        <div class="bubble"><div class="message">We are losing money! Quick!</div>
+                        <div class="time secondary-text">3/22/17, 4:15 PM</div></div>
+                    </div>
+                    <div class="message-row contact ng-star-inserted">
+                        <div class="bubble"><div class="message">You are the worst!</div>
+                        <div class="time secondary-text">3/22/17, 4:05 PM</div></div>
+                    </div>
+                    <div class="message-row contact last-of-group ng-star-inserted">
+                        <img class="avatar ng-star-inserted" src="assets/images/avatars/alice.jpg">
+                        <div class="bubble">
+                            <div class="message">We are losing money! Quick!</div>
+                            <div class="time secondary-text">3/22/17, 4:15 PM</div>
+                        </div>
+                    </div>
+                    <!-- <div class="no-contact-selected ng-star-inserted">
+                        <div class="no-contact-icon">
+                            <mat-icon class="s-128 fade-text mat-icon material-icons mat-icon-no-color" role="img" aria-hidden="true">chat</mat-icon>
+                        </div>
+                        <div class="no-contact secondary-text"> Select a contact to start a conversation. </div>
+                    </div> -->
+                    
+                </div>
+                <!---->
+                <div class="reply-form ng-star-inserted" fxflex="0 0 auto" fxlayout="row" fxlayoutalign="center center">
+                        <form fxflex="" fxlayout="row" fxlayoutalign="start center"  style="flex-direction: row; box-sizing: border-box; display: flex; place-content: center flex-start; align-items: center; flex: 1 1 0%;">
+                            <mat-form-field appearance="standard" class="message-text mat-form-field ng-tns-c23-46 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-standard mat-form-field-can-float ng-untouched ng-pristine ng-valid" floatlabel="never" fxflex="" style="flex: 1 1 0%; box-sizing: border-box;">
+                                <div class="mat-form-field-wrapper">
+                                    <div class="mat-form-field-flex">
+                                        <!---->
+                                        <!---->
+                                        <div class="mat-form-field-infix">
+                                            <textarea class="mat-input-element mat-form-field-autofill-control cdk-textarea-autosize mat-autosize cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid" matinput="" name="message" ngmodel="" placeholder="Type your message" rows="1" id="mat-input-1" aria-invalid="false" aria-required="false" style="height: 18px;"></textarea><span class="mat-form-field-label-wrapper"><!----></span></div>
+                                        <!---->
+                                    </div>
+                                    <!---->
+                                    <div class="mat-form-field-underline ng-tns-c23-46 ng-star-inserted"><span class="mat-form-field-ripple"></span></div>
+                                    <div class="mat-form-field-subscript-wrapper">
+                                        <!---->
+                                        <!---->
+                                        <div class="mat-form-field-hint-wrapper ng-tns-c23-46 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">
+                                            <!---->
+                                            <div class="mat-form-field-hint-spacer"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </mat-form-field>
+                            <button aria-label="Send message" class="send-message-button mat-icon-button" mat-icon-button="" type="submit">
+                                <span class="mat-button-wrapper">
+                                    <img src="assets/icons/send-button.png">
+                                </span>
+                            </button>
+                        </form>
+                    </div>
+            </div>
+        </div>
+    </chat-panel>
+</fuse-sidebar>
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
