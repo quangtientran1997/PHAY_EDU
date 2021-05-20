@@ -1,0 +1,97 @@
+﻿@using System.Web.Mvc
+@using System.Web.Mvc.Ajax
+@using System.Web.Mvc.Html
+@using PHAY.LIB.Extensions
+@using Kendo.Mvc;
+@using Kendo.Mvc.UI;
+@using Kendo.Mvc.UI.Fluent;
+@using PHAY.LIB.Common
+@using PHAY.MOD.SYS.ViewModels
+
+@inherits System.Web.Mvc.WebViewPage
+@{
+    Layout = PHAY.LIB.Common.CommonBase.F_LayoutAdmin;
+    var title = "Nhóm người dùng";
+    ViewBag.Title = title;
+}
+@{
+    var controllerName = "HeThong";
+    var areaName = "";
+    var gridID = "gridNhomNguoiDung";
+    string deleteOneAction = "DeleteOneNhomNguoiDung";
+    string searchSuffix = "Search";
+    string keySearch = "Ten" + searchSuffix;
+    string link_NguoiDung = "<a onClick=\"$('[id=gridNguoiDung]').gridPopupEditor('popupEditor', '/HeThong/NguoiDung?pIDNhom=#=ID#', 'Danh sách người dùng')\" href=\"javascript:void(0);\">Xem [#=CountUser#]</a>";
+    string link_edit = "<a class=\"\"  onClick=\"$('[id=" + gridID + "]').gridPopupEditor('popupAddUpdateNhomNguoiDung', '/HeThong/EditNhomNguoiDung?pID=#=ID#', 'Cập nhật')\" href=\"javascript:void(0);\"><i class=\"fa fa-edit\"></i></a>";
+
+    bool isMobile = Request.Browser.IsMobileDevice;
+
+
+}
+
+
+<div class="col-md-12">
+
+    <div class="page-toolbar">
+        <h1 class="page-title pull-left">@title</h1>
+        <div class="pull-right box-search">
+            @using (Html.CMSFormFilter(gridID, searchSuffix, "formFilter"))
+            {
+                <div class="input-group input-group-sm">
+                    <input id="@keySearch" name="@keySearch" type="text" class="form-control" placeholder="Nhập từ khóa">
+                    <span class="input-group-btn">
+                        <button id="btnTimGrid" name="btnTimGrid" class="btn blue btn-sm" type="button" onclick="$(this).formFilter()">Tìm kiếm</button>
+                    </span>
+                </div>
+            }
+        </div>
+        <div class="pull-right relative">
+            <a class="btn blue btn-sm" onclick="$('[id=@gridID]').gridPopupEditor('popupAddUpdateNhomNguoiDung', '/HeThong/AddNhomNguoiDung', 'Thêm mới')" href="javascript:">Thêm</a>
+            <a class="btn red btn-sm" onclick="$('[id=@gridID]').gridDeleteList(this, '/HeThong/DeleteNhomNguoiDung')" href="javascript:">Xóa</a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div>
+        @(Html.Kendo().Grid<GridNhomNguoiDungViewModel>().Name(gridID)
+                                            .Columns(columns =>
+                                            {
+                                                columns.Select(m => m.ID).FormatCheckBoxColumn();
+                                                columns.RecordIndexExtend();
+                                                columns.Bound(m => m.Ten).Title("Tên nhóm");
+                                            //columns.Bound(m => m.CountUser).ClientTemplate(link_NguoiDung).Title("Số người dùng").Align(Alignment.Center).Width(60);
+                                            columns.Bound(m => m.ID).ClientTemplate(link_edit).Title("").Align(Alignment.Center).Width(30).Sortable(false);
+                                                columns.ButtonDelete(deleteOneAction, routeValues: new { pID = "#=ID#" }).Width(30);
+                                            })
+                                            .DataSource(dataSource => dataSource
+                                            .Ajax()
+                                                .Model(model =>
+                                                {
+                                                    model.Id(m => m.ID);
+                                                })
+                                                .Batch(true)
+                                                .ServerOperation(true)
+                                                .Read(read => read.Action("GridReadNhomNguoiDung", controllerName, new { area = areaName }))
+                                                .Sort(sort =>
+                                                {
+
+                                                })
+                                            )
+                                            .Pageable(page => page.PageSizes(true))
+                                            .Sortable()
+                                            .Resizable(resize => resize.Columns(true))
+                                            .CMSConfigs()
+        )
+    </div>
+
+    <script type="text/javascript">
+        document.getElementById('@keySearch')
+        .addEventListener("keypress", function (event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.getElementById("btnTimGrid").click();
+            }
+        });
+
+    </script>
+    <div class="clearfix"></div>
+</div>

@@ -1,9 +1,0 @@
-﻿@using ASC.MOD.EOFFICE.ViewModels
-@{ 
-    ParamThongKeVangViewModel paramVang = new ParamThongKeVangViewModel();
-    DateTime toDay = DateTime.Now;
-    paramVang.TuNgay = new DateTime(toDay.Year, 1, 1);
-    paramVang.DenNgay = DateTime.Now;
-
-    Html.RenderAction("ThongKeDangKyVang", "ChamCong", new { param = paramVang });
-}

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Mvc;
 using System.Web.Security;
 
 namespace PHAY.LIB.Common
@@ -23,6 +24,7 @@ namespace PHAY.LIB.Common
         public const string CKE_CULTURE = "Culture";
         #region Const
         public const string SES_USER_INFO = "UserInfo";
+        public const string F_LayoutAdmin = "~/Views/Shared/Admin/_LayoutInTabs.cshtml";
         #endregion
         public static string CurrentCultureName
         {
@@ -337,6 +339,25 @@ namespace PHAY.LIB.Common
 
 
         #endregion
+
+        public static string GetUrl(string actionName, string controllerName, object routeValues)
+        {
+            // Không có action
+            if (string.IsNullOrEmpty(actionName))
+            {
+                return null;
+            }
+
+            UrlHelper url = new UrlHelper(System.Web.HttpContext.Current.Request.RequestContext);
+
+            // Là RouteValueDictionary
+            if (routeValues is System.Web.Routing.RouteValueDictionary)
+            {
+                return url.Action(actionName, controllerName, routeValues as System.Web.Routing.RouteValueDictionary);
+            }
+
+            return url.Action(actionName, controllerName, routeValues);
+        }
 
     }
 }

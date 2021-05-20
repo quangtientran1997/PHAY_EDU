@@ -1,0 +1,61 @@
+﻿@using Kendo.Mvc;
+@using Kendo.Mvc.UI;
+@using Kendo.Mvc.UI.Fluent;
+@using System.Web.Mvc
+@using System.Web.Mvc.Ajax
+@using System.Web.Mvc.Html
+@using PHAY.LIB.Extensions
+@using System.Linq
+@using PHAY.MOD.SYS.ViewModels
+@using PHAY.LIB.Common
+
+@inherits System.Web.Mvc.WebViewPage<AddUpdateNhomNguoiDungViewModel>
+@{
+    Layout = null;
+    // Chỉnh sửa
+    bool isAdd = false;
+    string title = "Cập nhật nhóm người dùng";
+    string controllerName = "HeThong";
+    string actionName = "EditNhomNguoiDung";
+    string gridID = "gridNhomNguoiDung";
+    string popupEditName = "popupAddUpdateNhomNguoiDung";
+    string message = "Cập nhật thành công";
+    // Thêm
+    if (ViewBag.IsAdd != null && ViewBag.IsAdd)
+    {
+        actionName = "AddNhomNguoiDung";
+        isAdd = true;
+        title = "Thêm nhóm người dùng";
+        message = "Thêm thành công";
+    }
+    ViewBag.Title = title;
+}
+<style>
+    .k-window {
+        top: 20px !important;
+    }
+</style>
+<div class="window window-popup" window-width="700" window-title="@title" style="width:700px;">
+    <div class="portlet-body form">
+        @using (Ajax.CMSPopupForm(new CMSPopupFormOptions { IsAdd = isAdd, ActionName = actionName, PopupID = popupEditName, GridID = gridID, Message = message }))
+        {
+            @Html.HiddenFor(model => model.ID)
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <label class="control-label">Tên nhóm</label> <span class="required">*</span>
+                    </div>
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(m => m.Ten, new { @class = "form-control" })
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clear-20"></div>
+                <div class="text-center">
+                    <a class="btn green" data-button-type="submit" href="javascript:" id="btnLuuNhomNguoiDung" name="btnLuuNhomNguoiDung" onclick="$(this).childFormSubmit()" title="Lưu"><span class="p-i-save"></span>Lưu</a>&nbsp;
+                    <a class="btn grey-cascade" data-button-type="button" href="javascript:" id="close" name="close" onclick="$(this).kendoWindowClose()" title="Đóng"><span class="p-i-close"></span>Đóng</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -49,4 +49,13 @@ namespace PHAY.LIB.Common
         NotHadPermissions = 3
     }
 
+    public enum Enum_TrangThaiKichHoat
+    {
+        [Description("Chưa kích hoạt")]
+        ChuaKichHoat = 0,
+
+        [Description("Đã kích hoạt")]
+        DaKichHoat = 1
+    }
+
 }

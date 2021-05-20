@@ -47,14 +47,14 @@ namespace PHAY.MOD.SYS.Controllers
             }
             if (ModelState.IsValid)
             {
-                //try
-                //{
-                //    model.Password = CMSCrypto.DecryptPassword(model.UserName, model.Password);
-                //}
-                //catch (Exception ex)
-                //{
-                //    return View(viewNameLogin, model).Warning("Thông tin đăng nhập không đúng");
-                //}
+                try
+                {
+                    model.Password = CMSCrypto.DecryptPassword(model.UserName, model.Password);
+                }
+                catch (Exception ex)
+                {
+                    return View(viewNameLogin, model).Warning("Thông tin đăng nhập không đúng");
+                }
 
                 //Nếu tài khoản master => url?r=asc
                 //Tránh trường hợp khách hàng đổi mật khẩu DB để đăng nhập vào master
@@ -69,7 +69,7 @@ namespace PHAY.MOD.SYS.Controllers
                 var userInfo = new UserInformation();
                 LoginStates loginState = LoginStates.WrongInfo;
 
-                // Nếu kiểm tra code này trước thì trường hợp đăng nhập bằng alias không được do đang kiểm theo mã nhân sự
+                
                 var nguoiDung = Business.Context.ACL_NhomNguoiDung
                                         .Where(m => m.TenDangNhap == model.UserName
                                                     && m.IsDelete != true)
@@ -92,9 +92,6 @@ namespace PHAY.MOD.SYS.Controllers
                     FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
 
                     Session.Add(CommonBase.SES_USER_INFO, userInfo);
-
-                    //Kiểm tra và lưu thông báo SLDTBXH
-
 
 
                     var cacheManager = new DevTrends.MvcDonutCaching.OutputCacheManager();

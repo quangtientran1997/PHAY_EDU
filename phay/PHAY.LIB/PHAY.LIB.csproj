@@ -152,9 +152,12 @@
     <Compile Include="Common\CommonBase.cs" />
     <Compile Include="Common\StructsAndEnums.cs" />
     <Compile Include="ConnectKey\WebConnect.cs" />
+    <Compile Include="DropdownList\DropdownModel.cs" />
+    <Compile Include="DropdownList\EnumDropDownList.cs" />
     <Compile Include="Extensions\ExtensionMethods.cs" />
     <Compile Include="Extensions\HTWExtension.cs" />
     <Compile Include="Extensions\MessageExtensions.cs" />
+    <Compile Include="Extensions\Options.cs" />
     <Compile Include="Extensions\RouteExtensions.cs" />
     <Compile Include="Module\AppStarter.cs" />
     <Compile Include="Module\AssemblyResource.cs" />

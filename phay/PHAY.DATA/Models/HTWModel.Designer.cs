@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\tqtien\Kendo\phay\PHAY.DATA\Models\HTWModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\NET\GIT\PHAY_EDU\phay\PHAY.DATA\Models\HTWModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

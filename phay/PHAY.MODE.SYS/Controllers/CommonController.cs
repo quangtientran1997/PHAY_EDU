@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace PHAY.MODE.SYS.Controllers
+namespace PHAY.MOD.SYS.Controllers
 {
     public class CommonController : Controller
     {

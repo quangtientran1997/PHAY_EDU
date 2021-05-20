@@ -1,0 +1,153 @@
+﻿@using Kendo.Mvc;
+@using Kendo.Mvc.UI;
+@using Kendo.Mvc.UI.Fluent;
+@using System.Web.Mvc
+@using System.Web.Mvc.Ajax
+@using System.Web.Mvc.Html
+@using PHAY.LIB.Extensions
+@using System.Linq
+@using PHAY.MOD.SYS.ViewModels
+@using PHAY.LIB.Common
+
+@inherits System.Web.Mvc.WebViewPage<AddUpdateNguoiDungViewModel>
+@{
+    Layout = null;
+    // Chỉnh sửa
+    bool isAdd = false;
+    string title = "Cập nhật người dùng";
+    string controllerName = "HeThong";
+    string actionName = "EditNguoiDung";
+    string gridID = "gridNguoiDung";
+    string popupEditName = "popupAddUpdateNguoiDung";
+    string message = "Cập nhật thành công";
+    // Thêm
+    if (ViewBag.IsAdd != null && ViewBag.IsAdd)
+    {
+        actionName = "AddNguoiDung";
+        isAdd = true;
+        title = "Thêm người dùng";
+        message = "Thêm thành công";
+    }
+    ViewBag.Title = title;
+
+    bool isCoQuyenDoiMatKhau = CommonBase.HasAuthorized("PHAY.MOD.SYS.Controllers.HeThongController", "IsDoiMatKhau") ?? false;
+
+}
+<style>
+    .k-window {
+        top: 10px !important;
+    }
+</style>
+<div class="window window-popup" window-width="700" window-title="@title" style="width:800px;">
+    <div class="portlet-body form">
+        @using (Ajax.CMSPopupForm(new CMSPopupFormOptions { IsAdd = isAdd, ActionName = actionName, PopupID = popupEditName, GridID = gridID, Message = message }))
+        {
+            @Html.HiddenFor(model => model.ID)
+            @Html.HiddenFor(m => m.LoaiDoiTuong)
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <div class=""><label class=" control-label">Thuộc nhóm </label> <span class="required">(*)</span></div>
+                            <div class="">
+                                @Html.CMSDropDownListFor(m => m.IDThamChieu, PHAY.LIB.DropDownList.EnumDropDownList.NhomNguoiDung)
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="">
+                                <label class="control-label">Họ tên</label> <span class="required">(*)</span>
+                            </div>
+                            <div class="">
+                                @Html.TextBoxFor(m => m.Ten, new { @class = "form-control" })
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="">
+                                <label class="control-label">Địa chỉ</label>
+                            </div>
+                            <div class="">
+                                @Html.TextBoxFor(m => m.DiaChi, new { @class = "form-control" })
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="">
+                                        <label class="control-label">Email</label>
+                                    </div>
+                                    <div class="">
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", autocomplete = "new-password" })
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="">
+                                        <label class="control-label">Số điện thoại</label>
+                                    </div>
+                                    <div class="">
+                                        @Html.TextBoxFor(m => m.SoDienThoai, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="">
+                                <label class="control-label"></label>
+                            </div>
+                            <div class="">
+                                <label>@Html.CheckBox("IsActive", Model.IsActive) <b>Kích hoạt tài khoản</b></label>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        @if (isAdd || isCoQuyenDoiMatKhau)
+                        {
+                            <div class="form-group">
+                                @if (isAdd)
+                                {
+                                    <div class="">
+                                        <label class="control-label">Tên đăng nhập</label> <span class="required">(*)</span>
+                                    </div>
+                                    <div class="">
+                                        @Html.TextBoxFor(m => m.TenDangNhap, new { @class = "form-control", autocomplete = "new-password" })
+                                    </div>
+                                }
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="">
+                                    <label class="control-label">Mật khẩu</label> <span class="required">(*)</span>
+                                </div>
+                                <div class="">
+                                    @Html.PasswordFor(m => m.MatKhau, new { @class = "form-control", autocomplete = "new-password" })
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        }
+                        <div class="form-group">
+                            <label class="control-label">Hình đại diện</label>
+                            <div>
+                               @* @Html.CMS_FileAttachFor(m => m.FileHinhDaiDien, pOnlyUploadImage: true)*@
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clear-20"></div>
+                <div class="text-center">
+                    <a class="btn green" data-button-type="submit" href="javascript:" id="btnLuuNguoiDung" name="btnLuuNguoiDung" onclick="$(this).childFormSubmit()" title="Lưu"><span class="p-i-save"></span>Lưu</a>&nbsp;
+                    <a class="btn grey-cascade" data-button-type="button" href="javascript:" id="close" name="close" onclick="$(this).kendoWindowClose()" title="Đóng"><span class="p-i-close"></span>Đóng</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>

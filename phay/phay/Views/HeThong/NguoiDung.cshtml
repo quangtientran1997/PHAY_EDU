@@ -1,0 +1,178 @@
+﻿@using System.Web.Mvc
+@using System.Web.Mvc.Ajax
+@using System.Web.Mvc.Html
+@using PHAY.LIB.Extensions
+@using Kendo.Mvc;
+@using Kendo.Mvc.UI;
+@using Kendo.Mvc.UI.Fluent;
+@using PHAY.LIB.Common
+@using PHAY.MOD.SYS.ViewModels
+@using PHAY.DATA.Models
+
+@inherits System.Web.Mvc.WebViewPage<ParamGetNguoiDung>
+@{
+    Layout = ViewBag.IDNhom != null ? null : CommonBase.F_LayoutAdmin;
+    var title = "Người dùng";
+    ViewBag.Title = title;
+}
+@{
+    var controllerName = "HeThong";
+    var areaName = "";
+    var gridID = "gridNguoiDung";
+    string deleteOneAction = "DeleteOneNguoiDung";
+    string searchSuffix = "Search";
+    string keySearch = "Ten" + searchSuffix;
+    string link_edit = "<a class=\"\"  onClick=\"$('[id=" + gridID + "]').gridPopupEditor('popupAddUpdateNguoiDung', '/HeThong/EditNguoiDung?pID=#=ID#', 'Cập nhật')\" href=\"javascript:void(0);\"><i class=\"fa fa-edit\"></i></a>";
+    string link_chitiet = "<a class=\"\"  onClick=\"$('[id=" + gridID + "]').gridPopupEditor('popupAddUpdateChiTietNguoiDung', '/HeThong/EditChiTietNguoiDung?pIDNguoiDung=#=ID#', 'Thông tin người dùng')\" href=\"javascript:void(0);\"><i class=\"fa fa-user\"></i></a>";
+    string link_doipass = "<a class=\"\"  onClick=\"$('[id=" + gridID + "]').gridPopupEditor('popupAddUpdateThongTinDangNhap', '/HeThong/DoiThongTinDangNhapNguoiDung?pID=#=ID#', 'Đổi thông tin đăng nhập')\" href=\"javascript:void(0);\"><i class=\"fa fa-key\"></i></a>";
+    bool isMobile = Request.Browser.IsMobileDevice;
+    bool isAdd = (bool)ViewBag.IsAdd;
+    bool isEdit = (bool)ViewBag.IsEdit;
+    bool isDelete = (bool)ViewBag.IsDelte;
+}
+<script>
+    function gridAdditionalData() {
+        return {
+            param: {
+                TK_TenDangNhap: $("#TK_TenDangNhap").val(),
+                TK_HoTen: $("#TK_HoTen").val(),
+                TK_IDDonVi: $("#TK_IDDonVi").val(),
+                TK_IDPhongBan: $("#TK_IDPhongBan").val(),
+                TK_IDChucVu: $("#TK_IDChucVu").val(),
+                TK_IDNhomNguoiDung: $("#TK_IDNhomNguoiDung").val(),
+                TK_IDTrangThaiKichHoat: $("#TK_IDTrangThaiKichHoat").val()
+            }
+        };
+    }
+</script>
+<div class="col-md-12">
+
+    <div class="page-toolbar">
+        <h1 class="page-title pull-left">@title</h1>
+
+        <div class="pull-right relative">
+
+            <a class="btn blue btn-sm" onclick="$('[id=@gridID]').gridPopupEditor('popupAddUpdateNguoiDung', '/HeThong/AddNguoiDung?pIDNhom=@ViewBag.IDNhom', 'Thêm mới')" href="javascript:">Thêm</a>
+            <a class="btn red btn-sm" onclick="$('[id=@gridID]').gridDeleteList(this, '/HeThong/DeleteNguoiDung')" href="javascript:">Xóa</a>
+            @if (isAdd)
+            {
+                <a class="btn blue btn-sm" onclick="$('[id=@gridID]').gridPopupEditor('popupAddUpdateNguoiDung', '/HeThong/AddNguoiDung?pIDNhom=@ViewBag.IDNhom', 'Thêm mới')" href="javascript:">Thêm</a>
+            }
+            @if (isDelete)
+            {
+                <a class="btn red btn-sm" onclick="$('[id=@gridID]').gridDeleteList(this, '/HeThong/DeleteNguoiDung')" href="javascript:">Xóa</a>
+            }
+            <a class="btn btn-sm btn-hide-search" onclick="HideBoxSearch()" href="javascript:"></a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div>
+        <div class="portlet light bordered" id="box-search-hide">
+            <div id="box-search" class="box-searchnangcao form-cms">
+                @using (Html.CMSFormFilter(gridID, searchSuffix, "formFilter"))
+                {
+                    <div class="form-body form-cms">
+                        <div class="">
+                            <div class="form-group  col-md-2">
+                                <label>Tên đăng nhập</label>
+                                <div>
+                                    @Html.TextBoxFor(m => m.TK_TenDangNhap, new { @class = "form-control" })
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group  col-md-2">
+                                <label>Họ tên</label>
+                                <div>
+                                    @Html.TextBoxFor(m => m.TK_HoTen, new { @class = "form-control" })
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="form-group  col-md-3">
+                                <label>Nhóm người dùng</label>
+                                <div>
+                                    @Html.CMSDropDownListFor(m => m.TK_IDNhomNguoiDung, PHAY.LIB.DropDownList.EnumDropDownList.NhomNguoiDung)
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group  col-md-2">
+                                <label>Trạng thái</label>
+                                <div>
+                                    @Html.CMSEnumDropDownListFor(m => m.TK_IDTrangThaiKichHoat, typeof(Enum_TrangThaiKichHoat))
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="clearfix"></div>
+
+                            <div class="form-group col-md-2">
+                                <label style="color:#fff;">.</label>
+                                <div class="text-center">
+                                    <button id="btnTimGrid" name="btnTimGrid" class="btn blue" type="button" onclick="$(this).formFilter()">Tìm kiếm</button>
+                                    <button type="reset" class="btn btn-warning">Làm mới</button>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+
+                }
+            </div>
+        </div>
+    </div>
+    @(Html.Kendo().Grid<GridNguoiDungViewModel>().Name(gridID).HtmlAttributes(new { @class = "cms-grid-select" })
+                                    .Columns(columns =>
+                                    {
+                                        columns.Select(m => m.ID).FormatCheckBoxColumn();
+                                        columns.RecordIndexExtend();
+                                        columns.Bound(m => m.TenDangNhap).Title("Tên đăng nhập").Width(100);
+                                        columns.Bound(m => m.HoDem).Title("Họ đệm");
+                                        columns.Bound(m => m.Ten).Title("Tên");
+                                        //columns.Bound(m => m.IDChucVu).ClientTemplate("#=TenChucVu#").Title("Chức vụ");
+                                        if (!isMobile)
+                                        {
+                                            //columns.Bound(m => m.DiaChi).Title("Địa chỉ");
+                                            //columns.Bound(m => m.SoDienThoai).Title("Điện thoại");
+                                            //columns.Bound(m => m.Email).Title("Email");
+                                            //columns.Bound(m => m.IDThamChieu).ClientTemplate("#=TenNhomNguoiDung#").Title("Thuộc nhóm");
+                                        }
+                                        columns.ButtonChangeBitCMS(m => m.IsActive, "ChangeIsActiveNguoiDung", controllerName, new { pID = "#=ID#" }, "Kích hoạt").Title("Kích hoạt");
+                                        //.ClientTemplate("#if(IsActive == true){#<i class=\"fa fa-check\" style=\"color:green;\"></i>#}else{#<i class=\"fa fa-close\" style=\"color:red;\"></i>#}#").Title("Kích hoạt").Width(80);
+
+                                        //columns.Bound(m => m.IsActive).ClientTemplate("#if(IsActive == true){#<i class=\"fa fa-check\" style=\"color:green;\"></i>#}else{#<i class=\"fa fa-close\" style=\"color:red;\"></i>#}#").Title("Kích hoạt").Width(80).Align(Alignment.Center);
+                                        columns.Bound(m => m.ID).ClientTemplate(link_doipass).Title("Đổi mật khẩu").Align(Alignment.Center).Width(60).Sortable(false);
+                                        //columns.Bound(m => m.ID).ClientTemplate(link_chitiet).Title("").Align(Alignment.Center).Width(30).Sortable(false);
+
+                                        if (isEdit)
+                                        {
+                                            columns.Bound(m => m.ID).ClientTemplate(link_edit).Title("").Align(Alignment.Center).Width(30).Sortable(false);
+                                        }
+                                        if (isDelete)
+                                        {
+                                            columns.ButtonDelete(deleteOneAction, routeValues: new { pID = "#=ID#" }).Width(30);
+                                        }
+                                    })
+                                    .DataSource(dataSource => dataSource
+                                    .Ajax()
+                                        .Model(model =>
+                                        {
+                                            model.Id(m => m.ID);
+                                        })
+                                        .Batch(true)
+                                        .ServerOperation(true)
+                                        .Read(read => read.Action("GridReadNguoiDung", controllerName, new { area = areaName }).Data("gridAdditionalData"))
+                                        .Sort(sort =>
+                                        {
+
+                                        })
+                                    )
+                                    .Selectable()
+                                    .Pageable(page => page.PageSizes(true))
+                                    .Sortable()
+                                    .Resizable(resize => resize.Columns(true))
+                                    .CMSConfigs()
+        )
+</div>
+
+
