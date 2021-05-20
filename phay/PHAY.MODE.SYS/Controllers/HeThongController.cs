@@ -23,5 +23,23 @@ namespace PHAY.MOD.SYS.Controllers
         }
 
         #endregion
+
+        [CMSAuthorizeAttribute(AuthorizeType = AuthorizeTypes.AuthorizedUsers)]
+
+        public ActionResult Index()
+        {
+            //CheckQuyen();
+            //ViewBag.ThongKeTrongThang = Business.GetThongKeTruyCap(true);
+            //ViewBag.ThongKeTrongNam = Business.GetThongKeTruyCap(false);
+
+            return View();
+        }
+
+        [CMSAuthorizeAttribute(AuthorizeType = AuthorizeTypes.AuthorizedUsers)]
+        //[KhaoSatSuKienFilterAttribute]
+        public ActionResult Dashboard()
+        {
+            return View();
+        }
     }
 }
